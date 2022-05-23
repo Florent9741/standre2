@@ -13,8 +13,6 @@ use App\Http\Controllers\FilmsController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/backend', [FilmsController::class, 'crud'])->name('backend');
 
-Route::get('/films', [FilmsController::class, 'index'])->name('films');
+Route::get('/', [FilmsController::class, 'index'])->name('films');

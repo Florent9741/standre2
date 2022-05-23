@@ -19,6 +19,17 @@ class FilmsController extends Controller
         ]);
     }
 
+    public function crud()
+    {
+        $films =Films::All();
+
+        return view('films', [
+
+            'films' => $films,
+
+        ]);
+    }
+
 
     public function create()
     {
