@@ -1,5 +1,6 @@
-<section class="text-gray-600 body-font">
-    <div class="container px-5 py-24 mx-auto">
+<section class="mt-4 text-gray-600 bg-gray-100 rounded-lg body-font">
+    <h1 class="flex justify-around p-4 text-3xl">Prochaines Sorties</h1>
+    <div class="container px-5 py-8 mx-auto">
         <div class="flex flex-wrap -m-4">
 
             @foreach( $films as $film )

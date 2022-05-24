@@ -1,6 +1,6 @@
  <div class="flex items-center justify-between h-16 px-6 mx-auto">
     <div class="flex items-center space-x-4">
-      <img class="mt-10" src="{{ Storage::url('./img/logo.png')}}">
+      <img class="mt-10 h-[100px] rounded-md" src="{{ Storage::url('./img/logo.png')}}">
 
       <form class="hidden mb-0 lg:flex">
         @csrf
@@ -26,7 +26,7 @@
     </nav>
 
     <div class="items-center hidden mt-12 space-x-4 lg:flex">
-      <a class="px-5 py-2 text-sm font-medium text-white bg-red-700 rounded-lg" href="" >Login</a>
+      <a class="flex items-center justify-center px-6 py-3 my-3 space-x-2 text-sm tracking-wide text-white capitalize transition-colors duration-200 transform bg-red-700 rounded-md hover:bg-red-600 focus:outline-none focus:bg-red-500 focus:ring focus:ring-red-300 focus:ring-opacity-50" href="" >Login</a>
     </div>
   </div>
 

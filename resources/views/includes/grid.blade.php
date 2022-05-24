@@ -10,7 +10,7 @@
 				<div>
 					<span class="font-medium">{{$film->titre}}</span>
 					<a class="flex justify-center" href="#">
-						<button type="button" class="px-2 py-1 mt-1 font-semibold text-white bg-red-700 rounded">Séances</button>
+						@include('includes.seances')
 					</a>
 				</div>
 			</div>

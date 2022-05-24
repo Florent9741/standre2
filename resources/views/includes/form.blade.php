@@ -1,6 +1,6 @@
 
 <div x-data="{ modelOpen: false }">
-    <button @click="modelOpen =!modelOpen" class="flex items-center justify-center px-6 py-3 my-3 space-x-2 text-sm tracking-wide text-white capitalize transition-colors duration-200 transform bg-indigo-500 rounded-md dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:bg-indigo-700 hover:bg-indigo-600 focus:outline-none focus:bg-indigo-500 focus:ring focus:ring-indigo-300 focus:ring-opacity-50">
+    <button @click="modelOpen =!modelOpen" class="flex items-center justify-center px-6 py-3 my-3 space-x-2 text-sm tracking-wide text-white capitalize transition-colors duration-200 transform bg-red-700 rounded-md hover:bg-red-600 focus:outline-none focus:bg-red-500 focus:ring focus:ring-red-300 focus:ring-opacity-50">
         <span>Ajouter Un Film</span>
     </button>
 
@@ -67,7 +67,7 @@
                     <label for="duree" class="block pt-4 pl-2 text-sm text-gray-700 dark:text-gray-600">Ajouter une affiche</label>
                     <div class="flex justify-between mt-2">
                         <input type="file" class="px-4 py-2 border rounded-md file dark:border-gray-100" name="images" value="Ajouter Affiche">
-                        <button type="submit" class="px-3 py-2 text-sm tracking-wide text-white capitalize transition-colors duration-200 transform bg-indigo-500 rounded-md dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:bg-indigo-700 hover:bg-indigo-600 focus:outline-none focus:bg-indigo-500 focus:ring focus:ring-indigo-300 focus:ring-opacity-50">
+                        <button type="submit" class="flex items-center justify-center px-6 py-3 my-3 space-x-2 text-sm tracking-wide text-white capitalize transition-colors duration-200 transform bg-red-700 rounded-md hover:bg-red-600 focus:outline-none focus:bg-red-500 focus:ring focus:ring-red-300 focus:ring-opacity-50">
                             Valider
                         </button>
                     </div>
