@@ -16,11 +16,7 @@ class FilmsController extends Controller
     {
         $categories = Categories::All();
         $films = Films::with('categories')->get();
-
-
-
-        $filma = DB::table('films')->where('affiche', '=', 1)->offset(0)->limit(3)->get();
-
+        $filma = Films::where('affiche', '=', 1)->offset(0)->limit(5)->get();
 
         return view('welcome', [
             //'films' c'est la variable du view et $film c'est ma variable de fonction 
@@ -48,7 +44,7 @@ class FilmsController extends Controller
     public function create(Request $request)
     {
    
-          $name = Storage::disk('public')->put('img', $request->file('images'));    //chemin + nom image
+            $name = Storage::disk('public')->put('img', $request->file('images'));    //chemin + nom image
             $film = Films::create([
                 'titre' => $request->titre,
                 'resume' => $request->resume,
