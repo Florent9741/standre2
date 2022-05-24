@@ -1,9 +1,9 @@
  <div class="footer">
   <footer class="text-gray-600 body-font">
-    <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
-      <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:py-2 sm:mt-0 mt-4">© 2022 Xbmod Formation Simplon
+    <div class="container flex flex-col items-center px-5 py-8 mx-auto sm:flex-row">
+      <p class="mt-4 text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:py-2 sm:mt-0">© 2022 Formation Simplon
       </p>
-      <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+      <span class="inline-flex justify-center mt-4 sm:ml-auto sm:mt-0 sm:justify-start">
       
         <a  href="https://twitter.com/xmicky" class="ml-3 text-gray-500">
           <i class="fa-brands fa-twitter" id="twitter"></i>

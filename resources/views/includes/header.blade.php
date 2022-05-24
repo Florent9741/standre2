@@ -1,10 +1,11 @@
  <div class="flex items-center justify-between h-16 px-6 mx-auto">
     <div class="flex items-center space-x-4">
-      <img class="mt-10" src="./img/logo.png">
+      <img class="mt-10" src="{{ Storage::url('./img/logo.png')}}">
 
       <form class="hidden mb-0 lg:flex">
+        @csrf
         <div class="relative ">
-          <input class="h-10 px-10 text-sm placeholder-gray-400 border-gray-600 rounded-lg mt-14 focus:z-10 textin" placeholder="Search..." type="text"/>
+          <input class="h-10 px-10 text-sm placeholder-gray-400 border-gray-600 rounded-lg mt-14 focus:z-10 textin" placeholder="Rechercher un film..." type="text"/>
           <button class="absolute inset-y-0 right-0 p-2 mr-px text-gray-600 rounded-r-lg" type="submit"></button>
         </div>
       </form>

@@ -16,3 +16,5 @@ use App\Http\Controllers\FilmsController;
 Route::get('/backend', [FilmsController::class, 'crud'])->name('backend');
 
 Route::get('/', [FilmsController::class, 'index'])->name('films');
+
+Route::post('/ajouter', [FilmsController::class, 'create'])->name('ajouter');

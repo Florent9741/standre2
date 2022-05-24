@@ -21,7 +21,6 @@ return new class extends Migration
             $table->date('date');
             $table->string('realisateur',200);
             $table->string('duree');
-            $table->string('casting',250);
             $table->string('affiche',250);
         });
     }

@@ -5,78 +5,87 @@ namespace App\Http\Controllers;
 use App\Models\Categories;
 use App\Models\Films;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+
 
 class FilmsController extends Controller
 {
 
     public function index()
     {
-        $categories= Categories::All();
-        $films =Films::with('categories')->get();
+        $categories = Categories::All();
+        $films = Films::with('categories')->get();
 
-        return view('welcome',['films' => $films, 'categories'=>$categories]);
+
+
+        $filma = DB::table('films')->where('affiche', '=', 1)->offset(0)->limit(3)->get();
+
+
+        return view('welcome', [
+            //'films' c'est la variable du view et $film c'est ma variable de fonction 
+            'films' => $films,
+            'categories' => $categories,
+            'filma' => $filma,
+
+
+        ]);
     }
 
     public function crud()
     {
-        $films =Films::All();
-
-        return view('films', [
+        $films = Films::All();
+        $categories = Categories::All();
+        return view('backend', [
 
             'films' => $films,
+            'categories' => $categories,
 
         ]);
     }
 
 
-    public function Create(Request $request)
+    public function create(Request $request)
     {
-        //dd($request);
-        //dd($request->input)
-       // $livre = new Livres();
-       // $livre->titre = $request->titre;
-      //  $livre->contenu = $request->contenu;
-      //  $livre->save();
+   
+          $name = Storage::disk('public')->put('img', $request->file('images'));    //chemin + nom image
+            $film = Films::create([
+                'titre' => $request->titre,
+                'resume' => $request->resume,
+                'date' => NOW(),
+                'id_categorie'  => $request->id_categorie,
+                'realisateur' => $request->realisateur,
+                'duree' => $request->duree,
+                'image' => $name,
+            ]);
 
-        $request->validate([
-            'titre' => 'required|max:255',
-            'contenu' => 'required',
+            $newfilm = new Films();
+            $newfilm->image = $name;
+            $film->save();
 
-        ]);
-       
-        Films::create([
-            'titre' => $request->titre,
-            'contenu' => $request->contenu,
-            'id_auteurs'  => $request->auteur,
-        ]);
-
-        return redirect()->route('livres');
+        return redirect()->route('backend');
     }
+
 
     public function store(Request $request)
     {
-      
     }
 
     public function show($id)
     {
-        
     }
 
 
     public function edit($id)
     {
-        
     }
 
     public function update(Request $request, $id)
     {
-        
     }
 
 
     public function destroy($id)
     {
-        
     }
 }
