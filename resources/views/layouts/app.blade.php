@@ -6,7 +6,7 @@
 
 <body>
 
-    <header class="header">
+    <header>
         @include('includes.header')
     </header>
 
@@ -18,7 +18,7 @@
         @yield('content')
     </main>
     
-    <footer class="row">
+    <footer>
         @include('includes.footer')
     </footer>
 </body>
