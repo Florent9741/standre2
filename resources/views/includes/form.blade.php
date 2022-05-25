@@ -33,21 +33,21 @@
                         <label for="titre"
                             class="block text-sm text-gray-700 capitalize dark:text-gray-600">Titre</label>
                         <input type="text" name="titre"
-                            class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40" required>
+                            class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-red-400 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-40" required>
                     </div>
 
                     <div class="mt-4">
                         <label for="resume"
                             class="block text-sm text-gray-700 capitalize dark:text-gray-600">Resumé</label>
                         <textarea name="resume" rows="6"
-                            class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40" required></textarea>
+                            class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-red-400 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-40" required></textarea>
                     </div>
                     <div class="flex">
                         <div class="w-1/3">
                             <label for="id_categorie"
                                 class="block pt-3 pb-1 text-sm text-gray-700 capitalize dark:text-gray-600">Catégorie</label>
                             <select name="id_categorie"
-                                class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40" required>
+                                class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-red-400 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-40" required>
                                 <option>
                                     @foreach ($categories as $categorie)
                                     <option value="{{ $categorie['id'] }}" selected>{{ $categorie['genre'] }}</option>
@@ -57,20 +57,28 @@
                         </div>
                         <div class="w-1/3">
                             <label for="realisateur" class="block pt-3 pb-1 pl-2 text-sm text-gray-700 capitalize dark:text-gray-600">Realisateur</label>
-                            <input type="text" name="realisateur" class="block w-full px-3 py-2 mt-2 ml-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40" required>
+                            <input type="text" name="realisateur" class="block w-full px-3 py-2 mt-2 ml-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-red-400 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-40" required>
                         </div>
                         <div class="w-1/4 pt-3 pl-2">
                                 <label for="duree" class="block pb-1 pl-2 text-sm text-gray-700 capitalize dark:text-gray-600">Durée</label>
-                                <input type="text" placeholder="0h00" name="duree" class="block w-full px-3 py-2 mt-2 ml-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40" required>
+                                <input type="text" placeholder="0h00" name="duree" class="block w-full px-3 py-2 mt-2 ml-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-red-400 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-40" required>
                         </div>
                     </div>
-                    <label for="duree" class="block pt-4 pl-2 text-sm text-gray-700 dark:text-gray-600">Ajouter une affiche</label>
+                  
                     <div class="flex justify-between mt-2">
-                        <input type="file" class="px-4 py-2 border rounded-md file dark:border-gray-100" name="images" value="Ajouter Affiche" required>
+                        <label for="affiche" class=""></label>
+                        <input type="file" class="block py-4 w-1/3 text-sm text-white file:py-2 file:px-6 file:rounded file:border-1 file:border-gray-400" onchange="loadFile(event)" name="images" value="" required>
+                        <img id="output" width="100" />
                         <button type="submit" class="flex items-center justify-center px-6 py-3 my-3 space-x-2 text-sm tracking-wide text-white capitalize transition-colors duration-200 transform bg-red-700 rounded-md hover:bg-red-600 focus:outline-none focus:bg-red-500 focus:ring focus:ring-red-300 focus:ring-opacity-50">
                             Valider
                         </button>
                     </div>
+                    <script>
+                        var loadFile = function(event) {
+                            var image = document.getElementById('output');
+                            image.src = URL.createObjectURL(event.target.files[0]);
+                        };
+                        </script>
                 </form>
             </div>
         </div>

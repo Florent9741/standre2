@@ -16,6 +16,11 @@ body {
     padding-right: 10px;
   }
 
+  .scroll-hidden::-webkit-scrollbar {
+    height: 0px;
+    background: transparent; /* make scrollbar transparent */
+}
+
 .fa-solid.fa-film {
     color: red;
 }
