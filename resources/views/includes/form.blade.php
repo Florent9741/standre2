@@ -39,7 +39,7 @@
                     <div class="mt-4">
                         <label for="resume"
                             class="block text-sm text-gray-700 capitalize dark:text-gray-600">Resumé</label>
-                        <textarea name="resume"
+                        <textarea name="resume" rows="6"
                             class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-indigo-400 focus:outline-none focus:ring focus:ring-indigo-300 focus:ring-opacity-40" required></textarea>
                     </div>
                     <div class="flex">

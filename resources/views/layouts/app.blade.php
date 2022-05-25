@@ -1,4 +1,5 @@
 <!doctype html>
+
 <html>
 <head>
     @include('includes.head')
@@ -8,6 +9,7 @@
 
     <header>
         @include('includes.header')
+
     </header>
 
     <main>

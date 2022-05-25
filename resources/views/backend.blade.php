@@ -8,6 +8,13 @@
 
                 <table class="object-center whitespace-no-wrap table-auto">
                     @include('includes.form')
+                    @if (session('success'))
+                        <div class="alert alert-success">
+                            <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 3000)">
+                                <h1 class="text-xl font-medium text-green-800">Film ajouté</h1>
+                            </div>
+                        </div>
+                    @endif
                     <thead>
                         <tr
                             class="px-4 py-3 text-sm font-medium tracking-wider text-white rounded-b title-font bg-slate-600">

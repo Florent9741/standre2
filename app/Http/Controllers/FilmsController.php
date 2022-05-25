@@ -60,8 +60,7 @@ class FilmsController extends Controller
             $film->save();
    
      
-
-        return redirect()->route('backend');
+        return redirect()->route('backend')->with('success','Film ajouté');
 
     }
 
@@ -81,6 +80,23 @@ class FilmsController extends Controller
 
     public function update(Request $request, $id)
     {
+        $name = Storage::disk('public')->put('img', $request->file('images'));    //chemin + nom image
+        $film = Films::create([
+            'titre' => $request->titre,
+            'resume' => $request->resume,
+            'date' => NOW(),
+            'id_categorie'  => $request->id_categorie,
+            'realisateur' => $request->realisateur,
+            'duree' => $request->duree,
+            'image' => $name,
+        ]);
+
+        $newfilm = new Films();
+        $newfilm->image = $name;
+        $film->save();
+
+ 
+    return redirect()->route('backend')->with('success','Film ajouté');
     }
 
 
