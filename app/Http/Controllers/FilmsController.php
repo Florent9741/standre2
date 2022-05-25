@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Categories;
 use App\Models\Films;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 
@@ -58,8 +58,11 @@ class FilmsController extends Controller
             $newfilm = new Films();
             $newfilm->image = $name;
             $film->save();
+   
+     
 
         return redirect()->route('backend');
+
     }
 
 

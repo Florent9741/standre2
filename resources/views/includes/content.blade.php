@@ -1,11 +1,11 @@
-<section class="mt-4 text-gray-600 bg-gray-100 rounded-lg body-font">
-    <h1 class="flex justify-around p-4 text-3xl">Prochaines Sorties</h1>
+<section class="mt-4 text-gray-600 bg-gray-100 body-font">
+    <h1 class="flex justify-around p-4 text-black text-3xl">Prochaines Sorties</h1>
     <div class="container px-5 py-8 mx-auto">
         <div class="flex flex-wrap -m-4">
 
             @foreach( $films as $film )
             <div class="w-full p-4 lg:w-1/4 md:w-1/2">
-                <a class="relative block overflow-hidden rounded h-96">
+                <a class="relative block overflow-hidden h-96">
                     <img alt="affiche film" class="block object-scale-down object-center w-full h-full" src="{{ Storage::url($film->image)}}">
                 </a>
                 <div class="mt-4">
