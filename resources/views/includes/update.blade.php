@@ -78,7 +78,7 @@
                     <label for="duree" class="block pt-4 pl-2 text-sm text-gray-700 dark:text-gray-600">Remplacer l'affiche</label>
                     <div class="flex justify-between mt-2">
                         <input type="file" class="px-4 py-2 border rounded-md file dark:border-gray-100" name="images"
-                            value="Ajouter Affiche" required>
+                            value="Ajouter Affiche">
                         <button type="submit"
                             class="flex items-center justify-center px-6 py-3 my-3 space-x-2 text-sm tracking-wide text-white capitalize transition-colors duration-200 transform bg-red-700 rounded-md hover:bg-red-600 focus:outline-none focus:bg-red-500 focus:ring focus:ring-red-300 focus:ring-opacity-50">
                             Valider

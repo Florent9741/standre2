@@ -1,18 +1,22 @@
-<grid class="flex flex-col p-10 lg:mt-14 md:mt-10  text-gray-800 bg-gray-100 rounded-lg sm:mt-6 ">
-	<h1 class="text-3xl">Actuellement à l'affiche</h1>
-	<div class="grid w-full grid-cols-1 pt-6 mt-6 2xl:grid-cols-5 xl:grid-cols-4 lg:grid-cols-3 sm:grid-cols-2 gap-x-6 gap-y-12">
-        @foreach( $filma as $film )
-		<div class="">
-			<a href="#" class="block rounded-lg  h-[378px] affiche overflow-hidden">
-				<img alt="content" class="object-contain object-center w-full h-full" src="{{ Storage::url($film->image) }}">
-			</a>
-			<div class="flex justify-center mt-3 flex-col items-center">
-					<span class="font-medium">{{$film->titre}}</span>
-					<a class="flex justify-center" href="#">
-						@include('includes.seances')
-					</a>	
+
+<section class="py-6 lg:mt-12 sm:mt-4 md:mt-6 mx-auto w-full bg-gray-200 rounded-lg">
+	<h1 class="text-3xl flex justify-around">Sorties de la semaine</h1>
+
+	<div class="flex items-center justify-center">
+		<div class="grid gap-8 mt-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+			@foreach( $filma as $film )
+			<div class="w-full max-w-xs text-center">
+				<a href="#" class=""><img class="object-cover object-center w-full h-96 mx-auto rounded-lg affiche" src="{{ Storage::url($film->image) }}" alt="avatar"/></a>
+
+				<div class="mt-2 flex flex-col items-center justify-center">
+					<h3 class="text-lg font-medium text-black">{{$film->titre}}</h3>
+					<span class="">
+					@include('includes.seances')
+				</span>
+				</div>
 			</div>
+			@endforeach
+
 		</div>
-        @endforeach
 	</div>
-</grid>
+</section>

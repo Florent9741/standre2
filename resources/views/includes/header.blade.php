@@ -5,7 +5,7 @@
       <form class="hidden mb-0 lg:flex">
         @csrf
         <div class="relative ">
-          <input class="h-10 px-10 text-sm placeholder-gray-400 border-gray-600 rounded-lg mt-14 focus:z-10 textin" placeholder="Rechercher un film..." type="text"/>
+          <input class="h-10 px-10 text-sm placeholder-gray-400 border-gray-600 rounded-lg mt-12 focus:z-10 textin" placeholder="Rechercher un film..." type="text"/><i class="fa-solid fa-magnifying-glass -ml-6 text-gray-500"></i>
           <button class="absolute inset-y-0 right-0 p-2 mr-px text-gray-600 rounded-r-lg" type="submit"></button>
         </div>
       </form>
@@ -29,7 +29,7 @@
     </div>
   </div>
 
-  <div class="border-t border-gray-100 lg:hidden">
+  <div class="lg:hidden">
     <nav
       class="flex items-center justify-center p-4 pt-6 mt-6 overflow-x-auto text-sm font-medium"
     >

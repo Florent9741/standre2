@@ -16,14 +16,14 @@ class FilmsController extends Controller
     {
         $categories = Categories::All();
         $films = Films::with('categories')->where('affiche', '=', 0)->get();
-        $filma = Films::where('affiche', '=', 1)->offset(0)->limit(5)->get();
+        $filma = Films::where('affiche', '=', 1)->offset(0)->limit(4)->get();
 
         return view('welcome', [
-            //'films' c'est la variable utilisé dans le view et $film c'est ma variable de fonction 
+            //'films' c'est la variable utilisé dans le view et $films c'est la variable de la fonction 
             'films' => $films,
             'categories' => $categories,
             'filma' => $filma,
-
+   
 
         ]);
     }

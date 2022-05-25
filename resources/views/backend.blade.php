@@ -2,16 +2,21 @@
 
 @section('main')
     <section class="text-black body-font">
-        <div class="container px-5 py-24 mx-auto">
-            <div class="flex flex-col w-full mb-20 text-center">
-                <h1 class="pb-12 mb-2 text-3xl font-medium sm:text-4xl title-font">Liste des Films</h1>
+        <div class="container px-5 py-20 mx-auto ">
+            <div class="flex flex-col w-full mb-20 text-center ">
+                <h1 class="pb-4 mb-2 text-3xl font-medium sm:text-4xl title-font">Liste des Films</h1>
 
-                <table class="object-center whitespace-no-wrap table-auto">
+                <table class="object-center whitespace-no-wrap table-auto bg-gray-100">
                     @include('includes.form')
                     @if (session('success'))
                         <div class="alert alert-success">
-                            <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 3000)">
-                                <h1 class="text-xl font-medium text-green-800">Film ajouté</h1>
+                            <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 3000)">      
+                                    <div class="px-4 py-2 -mx-3">
+                                        <div class="mx-3">
+                                            <span class="font-semibold text-green-800">Nouveau film ajouté</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     @endif
