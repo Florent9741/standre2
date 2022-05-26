@@ -45,6 +45,15 @@ body {
   transform: scale(1.05);
 }
 
+.affiche1{
+  transition: transform .5s ease;
+
+}
+
+.affiche1:hover{
+  transform: scale(.85);
+}
+
 .input-file {
   display: none;
 }

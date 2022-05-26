@@ -15,7 +15,7 @@ class FilmsController extends Controller
     public function index()
     {
         $categories = Categories::All();
-        $films = Films::with('categories')->where('affiche', '=', 0)->get();
+        $films = Films::with('categories')->where('affiche', '=', 0)->limit(8)->get();
         $filma = Films::where('affiche', '=', 1)->offset(0)->limit(4)->get();
 
         return view('welcome', [
