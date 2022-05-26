@@ -17,3 +17,7 @@ Route::get('/', [FilmsController::class, 'index'])->name('films');
 Route::get('/backend', [FilmsController::class, 'crud'])->name('backend');
 
 Route::post('/ajouter', [FilmsController::class, 'create'])->name('ajouter');
+
+Route::post('/update/{id}', [FilmsController::class, 'update'])->whereNumber('id')->name('update');
+
+Route::delete('/delete/{id}', [FilmsController::class, 'delete'])->whereNumber('id')->name('delete');;
