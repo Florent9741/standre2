@@ -22,6 +22,6 @@ Route::post('/update/{id}', [FilmsController::class, 'update'])->whereNumber('id
 
 Route::delete('/delete/{id}', [FilmsController::class, 'delete'])->whereNumber('id')->name('delete');
 
-Route::get('/{id}', [FilmsController::class, 'show'])->whereNumber('id');
+Route::get('/film/{id}', [FilmsController::class, 'show'])->whereNumber('id');
 
 Route::get('/synopsis/{id}', [FilmsController::class, 'shows'])->whereNumber('id');

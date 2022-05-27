@@ -26,7 +26,7 @@
                         <a class="my-1 text-sm leading-5 text-gray-700 transition-colors duration-200 transform hover:text-red-700 hover:underline md:mx-4 md:my-0" href="/">Home</a>
                         <a class="my-1 text-sm leading-5 text-gray-700 transition-colors duration-200 transform hover:text-red-700 hover:underline md:mx-4 md:my-0" href="#">Blog</a>
                         <a class="my-1 text-sm leading-5 text-gray-700 transition-colors duration-200 transform hover:text-red-700 hover:underline md:mx-4 md:my-0" href="#">Compoents</a>
-                        <a class="my-1 text-sm leading-5 text-gray-700 transition-colors duration-200 transform hover:text-red-700 hover:underline md:mx-4 md:my-0" href="backend">backend</a>
+                        <a class="my-1 text-sm leading-5 text-gray-700 transition-colors duration-200 transform hover:text-red-700 hover:underline md:mx-4 md:my-0" href="{{route('backend')}}">backend</a>
                     </div>
 
                     <div class="flex items-center py-2 -mx-1 md:mx-0">

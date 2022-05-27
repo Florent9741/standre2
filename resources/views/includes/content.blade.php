@@ -16,7 +16,7 @@
                         </div>
                     </div>
                     <h2 class="z-10 p-5">
-                        <a rel="noopener noreferrer" href="#"
+                        <a rel="noopener noreferrer" href="film/{{$film->id_film}}"
                             class="font-medium text-md hover:underline dark:text-gray-100">{{ $film->titre }}</a>
                     </h2>
                 </div>

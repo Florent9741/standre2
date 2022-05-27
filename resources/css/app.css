@@ -7,6 +7,22 @@
 @import '~@fortawesome/fontawesome-free/css/brands';
 
 
+*::selection{
+  background-color: rgb(140, 0, 0);
+  color: white;
+}
+
+option:checked {
+  background-color: rgb(140, 0, 0);
+  color: white;
+}
+
+
+option:focus{
+  background-color: rgb(140, 0, 0);
+  color: white;
+}
+
 
 body {
     max-width: 1440px;
@@ -73,4 +89,12 @@ body {
   display: flex;
   align-content: space-between;
   border-bottom: 1px groove rgb(240, 255, 250);
+}
+
+.resumes{
+  display: -webkit-box;
+-webkit-line-clamp: 4;
+-webkit-box-orient: vertical;
+overflow: hidden;
+
 }

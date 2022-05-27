@@ -5,7 +5,7 @@
         <div class="grid grid-cols-1 gap-1 -mt-8 lg:grid-cols-4 sm:grid-cols-2">
             @foreach ($filma as $film)
 			<div class="h-[450px]">
-                <a href="/" class="relative flex items-end justify-start w-full overflow-hidden text-left bg-center bg-cover rounded-lg affiche1 h-[30rem] sm:h-[30rem] scale-75"
+                <a href="film/{{$film->id_film}}" class="relative flex items-end justify-start w-full overflow-hidden text-left bg-center bg-cover rounded-lg affiche1 h-[30rem] sm:h-[30rem] scale-75"
                     style="background-image: url({{ Storage::url($film->image) }});">
 			</a>
 				<div class="relative right-0 flex flex-col items-center mx-5 -top-[115px]">
