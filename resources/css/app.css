@@ -57,3 +57,20 @@ body {
 .input-file {
   display: none;
 }
+
+.detail{
+  margin: 50px 15px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #01444A;
+  color: aliceblue;
+  
+}
+
+.ligne{
+  display: flex;
+  align-content: space-between;
+  border-bottom: 1px groove rgb(240, 255, 250);
+}

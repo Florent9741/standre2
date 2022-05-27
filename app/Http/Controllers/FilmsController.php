@@ -90,6 +90,30 @@ class FilmsController extends Controller
         return redirect()->route('backend')->with('deleted','Film supprimé');
 }
 
+public function show($id)
+{
+ 
+    $filma = Films::find($id);
+
+    return view('layouts.film', [
+        'filma' => $filma, 
+    
+      
+    ]);
+}
+
+public function shows($id)
+{
+ 
+    $filma = Films::find($id);
+
+
+    return view('layouts.synopsis', [
+        'filma' => $filma,
+    
+   
+    ]);
+}
 
 
 }
