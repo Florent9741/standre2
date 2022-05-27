@@ -13,9 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('films', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_salle');
-            $table->foreign('id_salle')->references('id_num_salle')->on('salles');
+        Schema::create('films_categories', function (Blueprint $table) {
+            $table->unsignedBigInteger('film_id');
+            $table->foreign('film_id')->references('id_film')->on('films');
+            $table->unsignedBigInteger('categorie_id');
+            $table->foreign('categorie_id')->references('id')->on('categories');
         });
     }
 
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('films_categories');
     }
 };

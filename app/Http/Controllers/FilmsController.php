@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Categories;
 use App\Models\Films;
+use App\Models\films_categories;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -14,16 +15,14 @@ class FilmsController extends Controller
 
     public function index()
     {
-        $categories = Categories::All();
-        $films = Films::with('categories')->where('affiche', '=', 0)->limit(8)->get();
+      
+        $films = Films::where('affiche', '=', 0)->limit(8)->get();
         $filma = Films::where('affiche', '=', 1)->offset(0)->limit(4)->get();
 
         return view('welcome', [
-            //'films' c'est la variable utilisé dans le view et $films c'est la variable de la fonction 
+                                   //'films' c'est la variable utilisé dans le view et $films c'est la variable de la fonction 
             'films' => $films,
-            'categories' => $categories,
             'filma' => $filma,
-   
 
         ]);
     }
@@ -31,7 +30,7 @@ class FilmsController extends Controller
     public function crud()
     {
         $films = Films::All();
-        $categories = Categories::All();
+        $categories = films_categories::All();
         return view('backend', [
 
             'films' => $films,
@@ -49,7 +48,6 @@ class FilmsController extends Controller
                 'titre' => $request->titre,
                 'resume' => $request->resume,
                 'date' => NOW(),
-                'id_categorie'  => $request->id_categorie,
                 'realisateur' => $request->realisateur,
                 'duree' => $request->duree,
                 'image' => $name,
@@ -75,7 +73,6 @@ class FilmsController extends Controller
             'titre' => $request->titre,
             'resume' => $request->resume,
             'date' => NOW(),
-            'id_categorie'  => $request->id_categorie,
             'realisateur' => $request->realisateur,
             'duree' => $request->duree,
             'image' => $name,
@@ -92,5 +89,7 @@ class FilmsController extends Controller
         $film->delete();
         return redirect()->route('backend')->with('deleted','Film supprimé');
 }
+
+
 
 }

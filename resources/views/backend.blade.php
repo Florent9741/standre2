@@ -45,7 +45,9 @@
                                         src="{{ Storage::url($film->image) }}"> </td>
                                 <td class="px-4 py-3 border-2 "><a class="resume">{{ $film['resume'] }}</a></td>
                                 <td class="px-4 py-3 border-2"><a>{{ $film['duree'] }}</a></td>
-                                <td class="px-4 py-3 border-2"><a>{{ $film->categories->genre }}</a></td>
+                   
+                                <td class="px-4 py-3 border-2"><a></a></td>
+                 
                                 <td class="px-4 py-3 border-2"><a>{{ $film['affiche'] }}</a></td>
                                 <td class="px-4 py-3 border-2">@include('includes.update')
                                     @include('includes.delete')

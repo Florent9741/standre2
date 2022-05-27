@@ -10,11 +10,8 @@ class Films extends Model
     public $timestamps = false;
     use HasFactory;
 
-    protected $fillable = ['titre', 'resume', 'duree', 'date', 'image', 'id_categorie', 'realisateur'];
+    protected $fillable = ['titre', 'resume', 'duree', 'date', 'image',  'realisateur'];
 
 
-    public function categories()
-    {
-        return $this->belongsTo(Categories::class, 'id_categorie');
-    }
+
 }

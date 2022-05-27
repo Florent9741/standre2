@@ -46,7 +46,7 @@
                         <div class="w-1/3">
                             <label for="id_categorie"
                                 class="block pt-3 pb-1 text-sm text-gray-700 capitalize dark:text-gray-600">Catégorie</label>
-                            <select name="id_categorie"
+                            <select name="id_categorie[]" multiple
                                 class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-red-400 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-40" required>
                                 <option>
                                     @foreach ($categories as $categorie)
