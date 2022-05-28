@@ -17,7 +17,7 @@
             <p class="w-3/4 text-lg text-white resumes ">{{ $filma['resume'] }}</p>
              @include('includes.synopsis')
         </div>
-        <img class="w-[350px] p-8 mt-8" src="{{ Storage::url($filma->image) }}" alt="">
+        <img class="w-[380px] p-8 mt-8" src="{{ Storage::url($filma->image) }}" alt="">
 
     </div>
 </div>

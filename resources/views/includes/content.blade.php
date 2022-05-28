@@ -10,14 +10,14 @@
                         class="absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-b dark:via-transparent dark:from-gray-900 dark:to-gray-900">
                     </div>
                     <div class="absolute top-0 left-0 right-0 flex items-center justify-between mx-5 mt-3">
-                        <div class="flex flex-col justify-start text-center dark:text-gray-100">
+                        <div class="flex flex-col justify-start text-center text-gray-100">
                             <span
                                 class="px-2 py-2 leading-none tracking-wide bg-blue-600 border border-black rounded-lg ">{{ date('d M', strtotime($film->date)) }}</span>
                         </div>
                     </div>
                     <h2 class="z-10 p-5">
                         <a rel="noopener noreferrer" href="film/{{$film->id_film}}"
-                            class="font-medium text-md hover:underline dark:text-gray-100">{{ $film->titre }}</a>
+                            class="font-medium text-gray-100 text-md hover:underline">{{ $film->titre }}</a>
                     </h2>
                 </div>
             @endforeach

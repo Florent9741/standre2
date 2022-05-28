@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('films_categories', function (Blueprint $table) {
+        Schema::create('film_categorie', function (Blueprint $table) {
             $table->unsignedBigInteger('film_id');
-            $table->foreign('film_id')->references('id_film')->on('films');
+            $table->foreign('film_id')->references('id_film')->on('films')->onDelete('cascade');
             $table->unsignedBigInteger('categorie_id');
-            $table->foreign('categorie_id')->references('id')->on('categories');
+            $table->foreign('categorie_id')->references('id')->on('categories')->onDelete('cascade');;
         });
     }
 

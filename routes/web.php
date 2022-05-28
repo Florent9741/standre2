@@ -12,7 +12,7 @@ use App\Http\Controllers\FilmsController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', [FilmsController::class, 'index'])->name('films');
+Route::get('/', [FilmsController::class, 'index'])->name('welcome');
 
 Route::get('/backend', [FilmsController::class, 'crud'])->name('backend');
 
@@ -23,5 +23,3 @@ Route::post('/update/{id}', [FilmsController::class, 'update'])->whereNumber('id
 Route::delete('/delete/{id}', [FilmsController::class, 'delete'])->whereNumber('id')->name('delete');
 
 Route::get('/film/{id}', [FilmsController::class, 'show'])->whereNumber('id');
-
-Route::get('/synopsis/{id}', [FilmsController::class, 'shows'])->whereNumber('id');

@@ -3,7 +3,7 @@
     <div class="w-full p-5 mx-auto mt-6 bg-gray-200 rounded-lg">
         <h1 class="flex justify-around pb-6 font-medium text-black sm:text-4xl title-font">Actuellement en salle</h1>
         <div class="grid grid-cols-1 gap-10 lg:grid-cols-4 sm:grid-cols-2">
-            @foreach ($films as $film)
+            @foreach ($filmAffiche as $film)
 			<div>
                 <a href="film/{{$film->id_film}}" class="relative flex items-end justify-start w-full overflow-hidden text-left bg-center bg-cover rounded-lg affiche dark:bg-gray-500 h-[30rem]"
                     style="background-image: url({{ Storage::url($film->image) }});">
