@@ -1,8 +1,11 @@
 <div x-data="{ modelOpen: false }">
-    <a @click="modelOpen =!modelOpen" class="mt-3 cursor-pointer text-slate-500 hover:text-indigo-500"> Synopsis et détail >
+
+
+    <a @click="modelOpen =!modelOpen" class="mt-3 cursor-pointer text-slate-500 hover:text-indigo-500"> Synopsis et
+        détail >
     </a>
-  
- 
+
+
 
     <div x-cloak x-show="modelOpen" class="fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title"
         role="dialog" aria-modal="true">
@@ -21,37 +24,38 @@
                 x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                 class="inline-block w-full max-w-xl overflow-hidden text-left transition-all transform 2xl:max-w-2xl">
                 <div class="flex items-center justify-center space-x-4">
-                   
+
 
                     <button @click="modelOpen = false" class="text-gray-600 focus:outline-none hover:text-gray-700">
                     </button>
                 </div>
 
-                <div class="rounded-lg detail">
+
+                <div class="rounded-lg detail ">
                     <div class="w-3/5 m-5 mb-9">
-                        <h1 class="m-4 text-3xl text-center"> Synopsis</h1>
-                        <p class="my-4">{{ $filma['resume'] }}</p>
-                
-                        <div class="ligne">
-                            <p class="w-1/2 my-4 "> réaliser par: </p>
-                            <p class="w-1/2 my-4 text-right">{{ $filma['realisateur'] }}</p>
+                        <h1 class="m-4 text-3xl font-bold text-center text-black"> Synopsis</h1>
+                        <p class="w-full my-4 leading-loose text-black">{{ $filma['resume'] }}</p>
+
+                        <div class=" ligne">
+                            <p class="w-1/2 my-4 text-black "> réaliser par : </p>
+                            <p class="w-1/2 my-4 text-right text-black">{{ $filma['realisateur'] }}</p>
                         </div>
                         <div class="ligne ">
-                            <p class="w-1/2 my-4"> genre:  @foreach ($filma->categories as $categorie) {{ $categorie->genre }}, @endforeach </p>
-                            <p class="w-1/2 my-4 text-right"></p>
+                            <p class="w-1/2 my-4 text-black"> genre : </p>
+                            <p class="w-1/2 my-4 text-right text-black"></p>
                         </div>
                         <div class="ligne">
-                            <p class="w-1/2 my-4"> durée: </p>
-                            <p class="w-1/2 my-4 text-right">{{ $filma['duree'] }}</p>
+                            <p class="w-1/2 my-4 text-black"> durée : </p>
+                            <p class="w-1/2 my-4 text-right text-black">{{ $filma['duree'] }}</p>
                         </div>
                         <div class="ligne">
-                            <p class="w-1/2 my-4"> date: </p>
-                            <p class="w-1/2 my-4 text-right">{{ $filma['date'] }}</p>
+                            <p class="w-1/2 my-4 text-black"> date : </p>
+                            <p class="w-1/2 my-4 text-right text-black">{{ $filma['date'] }}</p>
                         </div>
                     </div>
-                
-                    <button @click="modelOpen = false" 
-                        class="relative flex items-center h-12 px-6 my-4 space-x-2 overflow-hidden rounded-full group bg-gradient-to-r from-slate-500 to-purple-800 hover:to-lime-800">
+
+                    <button @click="modelOpen = false"
+                        class="relative flex items-center h-12 px-6 my-4 space-x-2 overflow-hidden rounded-lg group bg-gradient-to-r from-slate-800 to-red-800 hover:to-red-600">
                         <a class="relative text-sm text-white">RETOUR </a>
                         <div class="flex items-center -space-x-3 translate-x-3">
                             <div
@@ -64,10 +68,11 @@
                             </svg>
                         </div>
                     </button>
-                
+
                 </div>
-                
-             
+
+
+
             </div>
         </div>
     </div>
