@@ -33,19 +33,19 @@
                         <p class="my-4">{{ $filma['resume'] }}</p>
                 
                         <div class="ligne">
-                            <p class="w-1/2 my-4 "> réaliser par : </p>
+                            <p class="w-1/2 my-4 "> réaliser par: </p>
                             <p class="w-1/2 my-4 text-right">{{ $filma['realisateur'] }}</p>
                         </div>
                         <div class="ligne ">
-                            <p class="w-1/2 my-4"> genre : </p>
+                            <p class="w-1/2 my-4"> genre:  @foreach ($filma->categories as $categorie) {{ $categorie->genre }}, @endforeach </p>
                             <p class="w-1/2 my-4 text-right"></p>
                         </div>
                         <div class="ligne">
-                            <p class="w-1/2 my-4"> durée : </p>
+                            <p class="w-1/2 my-4"> durée: </p>
                             <p class="w-1/2 my-4 text-right">{{ $filma['duree'] }}</p>
                         </div>
                         <div class="ligne">
-                            <p class="w-1/2 my-4"> date : </p>
+                            <p class="w-1/2 my-4"> date: </p>
                             <p class="w-1/2 my-4 text-right">{{ $filma['date'] }}</p>
                         </div>
                     </div>

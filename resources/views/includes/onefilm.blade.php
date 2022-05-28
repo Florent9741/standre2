@@ -5,7 +5,9 @@
         <div class="flex flex-col py-12 mt-8 space-y-4 text-center md:w-3/4 lg:text-left md:text-left">
 
             <h3 class="text-4xl font-semibold text-white lg:text-5xl ">{{ $filma->titre }}</h3>
-            <p class="text-lg text-white"> Genre :</p>
+           
+            <p class="text-lg text-white"> Genre: @foreach ($filma->categories as $categorie) {{ $categorie->genre }}, @endforeach</p>
+       
             <div class="flex flex-row w-full mx-auto space-x-4">
                @include('includes.bandeAnnonce')
                @include('includes.filmSeance')
