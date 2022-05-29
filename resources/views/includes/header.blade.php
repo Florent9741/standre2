@@ -1,10 +1,11 @@
   <nav class="mt-2 bg-gray-300 rounded-lg shadow">
             <div class="flex flex-col mx-4 md:flex-row md:justify-between md:items-center">
                 <div class="flex items-center justify-between">
+
                     <div class="flex items-center">
                         <a href="/"> <img class="h-[100px] py-1 w-full pt-1 rounded-md" src="{{ Storage::url('./img/logo.png')}}"></a>
-
                         <!-- Search input on desktop screen -->
+
                         <div class="hidden mx-10 md:block">
                             <div class="relative">
                                 <span class="absolute inset-y-0 left-0 flex items-center pt-2 pl-3">
@@ -14,8 +15,10 @@
                                 </span>
 
                                 <input type="text" class="w-full py-2 pl-10 pr-4 text-gray-700 bg-white border rounded-md focus:border-red-700 focus:outline-none focus:ring focus:ring-opacity-40 focus:ring-red-300" placeholder="Rechercher un film...">
+                                
                             </div>
                         </div>
+
                     </div>
 
                 </div>
