@@ -14,17 +14,14 @@ class FilmsController extends Controller
 
     public function index()
     {
-        $categories = Categories::All();
-        $films = Films::with('categories')->where('affiche', '=', 0)->limit(8)->get();
-        $filma = Films::where('affiche', '=', 1)->offset(0)->limit(4)->get();
-
+        $films = Films::where('affiche', '=', 0)->where('news', '=', 0)->inRandomOrder()->limit(8)->get();
+        $filmNew = Films::where('news', '=', 1)->where('affiche', '=', 0)->offset(0)->inRandomOrder()->limit(4)->get();
+        $filmActuellement = Films::where('affiche', '=', 1)->offset(0)->inRandomOrder()->limit(8)->get();
         return view('welcome', [
             //'films' c'est la variable utilisé dans le view et $films c'est la variable de la fonction 
             'films' => $films,
-            'categories' => $categories,
-            'filma' => $filma,
-   
-
+            'filmNew' => $filmNew,
+            'filmAffiche' => $filmActuellement,
         ]);
     }
 
@@ -32,57 +29,55 @@ class FilmsController extends Controller
     {
         $films = Films::All();
         $categories = Categories::All();
+   
         return view('backend', [
-
             'films' => $films,
             'categories' => $categories,
-
         ]);
     }
 
 
     public function create(Request $request)
     {
-   
-            $name = Storage::disk('public')->put('img', $request->file('images'));    //chemin + nom image
-            $film = Films::create([
-                'titre' => $request->titre,
-                'resume' => $request->resume,
-                'date' => NOW(),
-                'id_categorie'  => $request->id_categorie,
-                'realisateur' => $request->realisateur,
-                'duree' => $request->duree,
-                'image' => $name,
-            ]);
-
-            $newfilm = new Films();
-            $newfilm->image = $name;
-            $film->save();
-   
-     
-        return redirect()->route('backend')->with('success','Film ajouté');
-
+//dd($request);
+        $path = Storage::disk('public')->put('img', $request->file('images'));    //chemin + nom image
+        $film = new Films();
+        $film->titre = $request->titre;
+        $film->affiche = $request->affiche;
+        $film->bandeannonce = $request->bandeannonce;
+        $film->resume = $request->resume;
+        $film->image = $path;
+        $film->duree = $request->duree;
+        $film->news = $request->news;
+        $film->date = $request->date;
+        $film->realisateur = $request->realisateur;
+        $film->save();
+        $film->categories()->attach($request->categorie);
+        return redirect()->route('backend')->with('success', 'Film ajouté');
     }
 
 
 
     public function update(Request $request, $id_film)
     {
-  
-        $name = Storage::disk('public')->put('img', $request->file('images'));    //chemin + nom image
-        $film = Films::where('id_film', '=', $id_film);
-        $film->update([
-            'titre' => $request->titre,
-            'resume' => $request->resume,
-            'date' => NOW(),
-            'id_categorie'  => $request->id_categorie,
-            'realisateur' => $request->realisateur,
-            'duree' => $request->duree,
-            'image' => $name,
-        ]);
+      // dd($request);
+        $path = Storage::disk('public')->put('img', $request->file('images'));    //chemin + nom image
+        $film = new Films();
+        $film->titre = $request->titre;
+        $film->affiche = $request->affiche;
+        $film->bandeannonce = $request->bandeannonce;
+        $film->resume = $request->resume;
+        $film->image = $path;
+        $film->duree = $request->duree;
+        $film->news = $request->news;
+        $film->date = $request->date;
+        $film->realisateur = $request->realisateur;
+        $film->categories()->sync($request->categories);
+        $film->update();
+ 
+        
+        return redirect()->route('backend')->with('modifié', 'Film modifié');
 
-    return redirect()->route('backend')->with('modifié','Film modifié');
-    
     }
 
 
@@ -90,7 +85,25 @@ class FilmsController extends Controller
     {
         $film = Films::where('id_film', '=', $id_film);
         $film->delete();
-        return redirect()->route('backend')->with('deleted','Film supprimé');
-}
+        return redirect()->route('backend')->with('deleted', 'Film supprimé');
+    }
 
+
+
+
+    public function show($id_film)
+    {
+        $filma = Films::find($id_film);
+        return view('film', [
+        'filma' => $filma,
+        ]);
+    }
+
+    public function shows($id_film)
+    {
+        $filma = Films::All()->where('id_film', '=', $id_film);
+        return view('synopsis', [
+         'filma' => $filma,
+        ]);
+    }
 }

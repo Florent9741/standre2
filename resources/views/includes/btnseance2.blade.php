@@ -1,7 +1,12 @@
 <div x-data="{ modelOpen: false }">
-    <button @click="modelOpen =!modelOpen">
-        <i class="p-3 fa-solid fa-trash-can hover:text-red-700"></i>
+
+    <button @click="modelOpen =!modelOpen"
+        class="flex items-center justify-center w-auto px-3 py-2 mt-[1px] space-x-2 bg-gray-500 hover:bg-gray-400 bg-opacity-50 rounded-lg shadow-md ">
+        <i class="text-white fa-solid fa-circle-info"></i>
+        <span class="font-semibold text-white">Seances</span>
     </button>
+
+
 
     <div x-cloak x-show="modelOpen" class="fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title"
         role="dialog" aria-modal="true">
@@ -20,23 +25,7 @@
                 x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                 class="inline-block w-full max-w-xl p-8 my-20 overflow-hidden text-left transition-all transform bg-white rounded-lg shadow-xl 2xl:max-w-2xl">
 
-                <h1 class="text-xl font-medium text-center text-gray-800" >Confirmer la suppression?</h1>
-                <div class="items-center space-x-4 bloc">
-          
-                    <div class="flex pt-6 justify-evenly">
-                        <button @click="modelOpen = false" class="h-12 px-6 my-4 text-gray-100 bg-gray-700 rounded-lg focus:outline-none hover:text-gray-200">
-                            Annuler
-                        </button>
-                        <form action="{{ route('delete', $film['id_film']) }}" method="post" >
-                            @csrf
-                            @method('delete')
-                            <button type="submit"  class="h-12 px-6 my-4 text-gray-100 bg-red-700 rounded-lg focus:outline-none hover:text-gray-200">
-                                Valider
-                            </button>
-                        </form>
-                    </div>
-                </div>
-
+                @include('includes.seances')
 
             </div>
         </div>

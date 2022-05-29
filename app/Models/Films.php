@@ -4,17 +4,19 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Categories;
 
 class Films extends Model
 {
     public $timestamps = false;
     use HasFactory;
 
-    protected $fillable = ['titre', 'resume', 'duree', 'date', 'image', 'id_categorie', 'realisateur'];
-
+    protected $primaryKey = 'id_film';
+    protected $fillable = ['titre', 'resume', 'duree', 'date', 'image',  'realisateur'];
 
     public function categories()
     {
-        return $this->belongsTo(Categories::class, 'id_categorie');
+       return $this->belongsToMany(Categories::class, 'film_categorie', 'film_id', 'categorie_id');
     }
+
 }

@@ -7,6 +7,32 @@
 @import '~@fortawesome/fontawesome-free/css/brands';
 
 
+*::selection{
+  background-color: rgb(140, 0, 0);
+  color: white;
+}
+
+option:checked {
+  background-color: rgb(140, 0, 0);
+  color: white;
+}
+
+
+option:focus{
+  background-color: rgb(140, 0, 0);
+  color: white;
+}
+
+
+.toggle-checkbox:checked {
+  @apply: right-0 border-green-400;
+  right: 0;
+  border-color: rgb(185, 28, 28);
+}
+.toggle-checkbox:checked + .toggle-label {
+  @apply: bg-green-400;
+  border-color: rgb(185, 28, 28);
+}
 
 body {
     max-width: 1440px;
@@ -56,4 +82,29 @@ body {
 
 .input-file {
   display: none;
+}
+
+.detail{
+  margin: 50px 15px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: white;
+  color: aliceblue;
+  
+}
+
+.ligne{
+  display: flex;
+  align-content: space-between;
+  border-bottom: 1px groove rgb(240, 255, 250);
+}
+
+.resumes{
+  display: -webkit-box;
+-webkit-line-clamp: 4;
+-webkit-box-orient: vertical;
+overflow: hidden;
+
 }
