@@ -101,35 +101,30 @@
                             <div class="w-1/3 pt-3 pl-2">
                                 <label for="duree"
                                     class="block pb-1 pl-2 text-sm text-gray-700 capitalize dark:text-gray-600">Durée</label>
-                                <input type="time" value=" {{ $film->duree }} " name="duree"
+                                <input type="time" value="{{ $film->duree }}" name="duree"
                                     class="block w-full px-3 py-2 mt-2 ml-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-red-400 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-40"
                                     required>
                             </div>
                             <div class="w-1/3 pt-3 pl-2">
                                 <label for="date" class="block pb-1 pl-2 text-sm text-gray-700 dark:text-gray-600">Date
                                     de sortie</label>
-                                <input type="date" value="{{ $film->date }}" min="2018-01-01" placeholder="0h00"
+                                <input type="date" value="{{ $film->date }}" min="2018-01-01"
                                     name="date"
                                     class="block w-full px-3 py-2 mt-2 ml-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-red-400 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-40"
                                     required>
                             </div>
                         </div>
                         <div class="flex justify-between mt-2">
-                            <input type="file"
-                            class="w-1/3 py-4 text-sm text-white file:py-2 file:px-6 file:rounded file:border-1 file:border-gray-400"
-                            onchange="loadFile(event)" name="images" value="" required>
+                            <label for="images" class="flex items-center justify-center h-10 px-6 py-3 mt-4 space-x-2 text-sm tracking-wide text-white transition-colors duration-200 transform bg-red-700 rounded-md hover:bg-red-600 focus:outline-none focus:bg-red-500 focus:ring focus:ring-red-300 focus:ring-opacity-50">
+                                Changer d'affiche</label>
+                            <input type="file"  style="visibility=hidden" id="images" name="images">
                             <img id="output" width="100" src="{{ Storage::url($film->image) }}">
+
                             <button type="submit"
                                 class="flex items-center justify-center h-10 px-6 py-3 mt-4 space-x-2 text-sm tracking-wide text-white capitalize transition-colors duration-200 transform bg-red-700 rounded-md hover:bg-red-600 focus:outline-none focus:bg-red-500 focus:ring focus:ring-red-300 focus:ring-opacity-50">
                                 Valider
                             </button>
                         </div>
-                        <script>
-                            var loadFile = function(event) {
-                                var image = document.getElementById('output');
-                                image.src = URL.createObjectURL(event.target.files[0]);
-                            };
-                        </script>
 
                 </form>
             </div>

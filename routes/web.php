@@ -23,3 +23,9 @@ Route::post('/update/{id}', [FilmsController::class, 'update'])->whereNumber('id
 Route::delete('/delete/{id}', [FilmsController::class, 'delete'])->whereNumber('id')->name('delete');
 
 Route::get('/film/{id}', [FilmsController::class, 'show'])->whereNumber('id');
+
+Route::get('/search', [FilmsController::class, 'search'])->name('search');
+
+Route::get('/notFound', function () {
+    return view('notFound')->name('notFound');
+});

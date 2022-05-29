@@ -51,6 +51,7 @@ class FilmsController extends Controller
         $film->news = $request->news;
         $film->date = $request->date;
         $film->realisateur = $request->realisateur;
+     
         $film->save();
         $film->categories()->attach($request->categorie);
         return redirect()->route('backend')->with('success', 'Film ajouté');
@@ -60,9 +61,9 @@ class FilmsController extends Controller
 
     public function update(Request $request, $id_film)
     {
-      // dd($request);
+     
         $path = Storage::disk('public')->put('img', $request->file('images'));    //chemin + nom image
-        $film = new Films();
+        $film = Films::find($id_film);
         $film->titre = $request->titre;
         $film->affiche = $request->affiche;
         $film->bandeannonce = $request->bandeannonce;
@@ -73,9 +74,8 @@ class FilmsController extends Controller
         $film->date = $request->date;
         $film->realisateur = $request->realisateur;
         $film->categories()->sync($request->categories);
-        $film->update();
- 
-        
+        $film->save();
+        $film->categories()->attach($request->categorie);
         return redirect()->route('backend')->with('modifié', 'Film modifié');
 
     }
@@ -99,11 +99,13 @@ class FilmsController extends Controller
         ]);
     }
 
-    public function shows($id_film)
+    public function search()
     {
-        $filma = Films::All()->where('id_film', '=', $id_film);
-        return view('synopsis', [
-         'filma' => $filma,
+
+        $search_text = $_GET['query'];
+        $films = Films::where('titre', '=', $search_text)->get();
+        return view('search', [
+            'films' => $films,
         ]);
     }
 }
