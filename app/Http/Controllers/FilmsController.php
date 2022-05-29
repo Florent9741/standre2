@@ -99,11 +99,13 @@ class FilmsController extends Controller
         ]);
     }
 
-    public function shows($id_film)
+    public function search()
     {
-        $filma = Films::All()->where('id_film', '=', $id_film);
-        return view('synopsis', [
-         'filma' => $filma,
+
+        $search_text = $_GET['query'];
+        $films = Films::where('titre', '=', $search_text)->get();
+        return view('search', [
+            'films' => $films,
         ]);
     }
 }
