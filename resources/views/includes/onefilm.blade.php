@@ -11,19 +11,19 @@
                 @endforeach
             </p>
 
-            <div class="flex flex-row w-full mx-auto space-x-4 justify-center lg:justify-start">
+            <div class="flex flex-row justify-center w-full mx-auto space-x-4 lg:justify-start">
                 @include('includes.bandeAnnonce')
-                @include('includes.filmSeance')
+                @include('includes.btnseance2')
             </div>
 
             <p class="text-white ">Sortie le : {{ $filma['date'] }}</p>
             <p class="text-white ">Durée: {{ $filma['duree'] }}</p>
             <p class="text-white ">De: {{ $filma['realisateur'] }}</p>
-            <p class="text-lg  lg:w-3/4 text-white resumes ">{{ $filma['resume'] }}</p>
+            <p class="text-lg text-white lg:w-3/4 resumes ">{{ $filma['resume'] }}</p>
             @include('includes.synopsis')
-            <a href="/"><i class="fa-solid fa-circle-arrow-left text-white mt-2 fa-2x hover:text-red-500"></i></a>
+            <a href="/"><i class="mt-2 text-white fa-solid fa-circle-arrow-left fa-2x hover:text-red-500"></i></a>
         </div>
-        <div class="flex flex-row w-full justify-center lg:justify-end lg:mr-12">
+        <div class="flex flex-row justify-center w-full lg:justify-end lg:mr-12">
             <img class="w-[380px] h-[560px] p-8 mt-8" src="{{ Storage::url($filma->image) }}" alt="">
         </div>
     </div>

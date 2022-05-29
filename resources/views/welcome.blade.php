@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('main')
-@include('includes.grid')
+@include('includes.sortie')
 @include('includes.abo')
 @endsection
 
 @section('content')
-@include('includes.actuelle')
-@include('includes.content')
+@include('includes.actuellement')
+@include('includes.prochainement')
 @endsection
 

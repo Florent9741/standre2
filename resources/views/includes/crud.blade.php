@@ -4,7 +4,7 @@
             <h1 class="pb-4 mb-2 text-3xl font-medium sm:text-4xl title-font">Liste des Films</h1>
 
             <table class="object-center whitespace-no-wrap bg-gray-100 table-auto">
-                @include('includes.form')
+                @include('includes.ajouter')
                 @if (session('success'))
                     <div class="alert alert-success">
                         <div x-data="{ show: true }" x-show="show" x-init="setTimeout(() => show = false, 3000)">      
