@@ -41,7 +41,9 @@
                             <p class="w-1/2 my-4 text-right text-black">{{ $filma['realisateur'] }}</p>
                         </div>
                         <div class="ligne ">
-                            <p class="w-1/2 my-4 text-black"> genre : </p>
+                            <p class="w-1/2 my-4 text-black"> genre : @foreach ($filma->categories as $categorie)
+                                {{ $categorie->genre }} &zwnj;
+                            @endforeach</p>
                             <p class="w-1/2 my-4 text-right text-black"></p>
                         </div>
                         <div class="ligne">

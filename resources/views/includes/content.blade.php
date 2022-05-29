@@ -1,6 +1,6 @@
 
 <section>
-    <div class="w-full p-5 mx-auto mt-6 bg-gray-200 rounded-lg">
+    <div class="w-full p-5 mx-auto mt-6 bg-gray-300 rounded-lg">
         <h1 class="flex justify-around pb-6 font-medium text-black sm:text-4xl title-font">Prochainement à l'affiche</h1>
         <div class="grid grid-cols-1 gap-10 lg:grid-cols-4 sm:grid-cols-2">
             @foreach ($films as $film)
@@ -16,8 +16,8 @@
                         </div>
                     </div>
                     <h2 class="z-10 p-5">
-                        <a rel="noopener noreferrer" href="film/{{$film->id_film}}"
-                            class="font-medium text-gray-100 text-md hover:underline">{{ $film->titre }}</a>
+                        <a rel="noopener noreferrer"
+                            class="font-medium text-gray-100 text-md">{{ $film->titre }}</a>
                     </h2>
                 </div>
             @endforeach

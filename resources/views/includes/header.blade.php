@@ -1,4 +1,4 @@
-  <nav class="mt-2 bg-gray-200 rounded-lg shadow">
+  <nav class="mt-2 bg-gray-300 rounded-lg shadow">
             <div class="flex flex-col mx-4 md:flex-row md:justify-between md:items-center">
                 <div class="flex items-center justify-between">
                     <div class="flex items-center">

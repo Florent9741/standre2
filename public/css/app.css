@@ -8292,10 +8292,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
-.my-2 {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-}
 .mx-4 {
   margin-left: 1rem;
   margin-right: 1rem;
@@ -8355,6 +8351,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mb-9 {
   margin-bottom: 2.25rem;
 }
+.mt-10 {
+  margin-top: 2.5rem;
+}
 .-mt-8 {
   margin-top: -2rem;
 }
@@ -8364,8 +8363,8 @@ Ensure the default browser behavior of the `hidden` attribute.
 .mt-1 {
   margin-top: 0.25rem;
 }
-.mt-10 {
-  margin-top: 2.5rem;
+.mt-16 {
+  margin-top: 4rem;
 }
 .mb-20 {
   margin-bottom: 5rem;
@@ -8378,6 +8377,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .mr-6 {
   margin-right: 1.5rem;
+}
+.mt-\[1px\] {
+  margin-top: 1px;
 }
 .block {
   display: block;
@@ -8421,6 +8423,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .h-\[1\.6px\] {
   height: 1.6px;
 }
+.h-\[560px\] {
+  height: 560px;
+}
 .h-\[450px\] {
   height: 450px;
 }
@@ -8430,8 +8435,8 @@ Ensure the default browser behavior of the `hidden` attribute.
 .h-10 {
   height: 2.5rem;
 }
-.h-\[600PX\] {
-  height: 600PX;
+.h-\[600px\] {
+  height: 600px;
 }
 .h-64 {
   height: 16rem;
@@ -8472,9 +8477,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .w-2 {
   width: 0.5rem;
 }
-.w-3\/4 {
-  width: 75%;
-}
 .w-\[380px\] {
   width: 380px;
 }
@@ -8486,6 +8488,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .w-4 {
   width: 1rem;
+}
+.w-3\/4 {
+  width: 75%;
 }
 .w-80 {
   width: 20rem;
@@ -8524,6 +8529,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .scale-75 {
   --tw-scale-x: .75;
   --tw-scale-y: .75;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.scale-50 {
+  --tw-scale-x: .5;
+  --tw-scale-y: .5;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 .scale-x-0 {
@@ -8715,6 +8725,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-bg-opacity: 1;
   background-color: rgb(16 185 129 / var(--tw-bg-opacity));
 }
+.bg-gray-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(55 65 81 / var(--tw-bg-opacity));
+}
+.bg-gray-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(209 213 219 / var(--tw-bg-opacity));
+}
 .bg-opacity-40 {
   --tw-bg-opacity: 0.4;
 }
@@ -8749,6 +8767,15 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .bg-contain {
   background-size: contain;
+}
+.bg-auto {
+  background-size: auto;
+}
+.bg-clip-border {
+  background-clip: border-box;
+}
+.bg-clip-content {
+  background-clip: content-box;
 }
 .bg-center {
   background-position: center;
@@ -9267,6 +9294,11 @@ overflow: hidden;
   background-color: rgb(239 68 68 / var(--tw-bg-opacity));
 }
 
+.hover\:bg-gray-400:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(156 163 175 / var(--tw-bg-opacity));
+}
+
 .hover\:to-red-600:hover {
   --tw-gradient-to: #dc2626;
 }
@@ -9285,6 +9317,11 @@ overflow: hidden;
   color: rgb(99 102 241 / var(--tw-text-opacity));
 }
 
+.hover\:text-red-500:hover {
+  --tw-text-opacity: 1;
+  color: rgb(239 68 68 / var(--tw-text-opacity));
+}
+
 .hover\:text-red-700:hover {
   --tw-text-opacity: 1;
   color: rgb(185 28 28 / var(--tw-text-opacity));
@@ -9293,6 +9330,11 @@ overflow: hidden;
 .hover\:text-blue-700:hover {
   --tw-text-opacity: 1;
   color: rgb(29 78 216 / var(--tw-text-opacity));
+}
+
+.hover\:text-gray-200:hover {
+  --tw-text-opacity: 1;
+  color: rgb(229 231 235 / var(--tw-text-opacity));
 }
 
 .hover\:underline:hover {
@@ -9427,8 +9469,8 @@ overflow: hidden;
     height: 30rem;
   }
 
-  .sm\:w-3\/5 {
-    width: 60%;
+  .sm\:w-full {
+    width: 100%;
   }
 
   .sm\:w-2\/3 {
@@ -9494,6 +9536,10 @@ overflow: hidden;
     padding-left: 1rem;
   }
 
+  .sm\:text-center {
+    text-align: center;
+  }
+
   .sm\:text-4xl {
     font-size: 2.25rem;
     line-height: 2.5rem;
@@ -9527,6 +9573,10 @@ overflow: hidden;
     margin-right: 0.5rem;
   }
 
+  .md\:mt-8 {
+    margin-top: 2rem;
+  }
+
   .md\:mt-0 {
     margin-top: 0px;
   }
@@ -9543,8 +9593,8 @@ overflow: hidden;
     display: none;
   }
 
-  .md\:w-3\/4 {
-    width: 75%;
+  .md\:w-full {
+    width: 100%;
   }
 
   .md\:w-auto {
@@ -9567,19 +9617,27 @@ overflow: hidden;
     padding: 1rem;
   }
 
-  .md\:text-left {
-    text-align: left;
+  .md\:text-center {
+    text-align: center;
   }
 }
 
 @media (min-width: 1024px) {
 
+  .lg\:mr-12 {
+    margin-right: 3rem;
+  }
+
+  .lg\:mt-16 {
+    margin-top: 4rem;
+  }
+
   .lg\:flex {
     display: flex;
   }
 
-  .lg\:w-full {
-    width: 100%;
+  .lg\:w-3\/4 {
+    width: 75%;
   }
 
   .lg\:grid-cols-4 {
@@ -9588,6 +9646,14 @@ overflow: hidden;
 
   .lg\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .lg\:justify-start {
+    justify-content: flex-start;
+  }
+
+  .lg\:justify-end {
+    justify-content: flex-end;
   }
 
   .lg\:px-8 {

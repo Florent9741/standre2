@@ -1,8 +1,8 @@
 <div x-data="{ modelOpen: false }">
         
-            <button  @click="modelOpen =!modelOpen" class="flex items-center justify-center w-auto px-3 py-2 space-x-2 bg-gray-500 bg-opacity-50 rounded-lg shadow-md ">
+            <button  @click="modelOpen =!modelOpen" class="flex items-center justify-center w-auto px-3 py-2 mt-[1px] space-x-2 bg-gray-500 hover:bg-gray-400 bg-opacity-50 rounded-lg shadow-md ">
                 <i class="text-white fa-solid fa-circle-info"></i>
-                <span class="font-semibold text-white">SEANCES</span>
+                <span class="font-semibold text-white">Seances</span>
             </button>
 
  
