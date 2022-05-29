@@ -51,7 +51,6 @@ class FilmsController extends Controller
         $film->news = $request->news;
         $film->date = $request->date;
         $film->realisateur = $request->realisateur;
-     
         $film->save();
         $film->categories()->attach($request->categorie);
         return redirect()->route('backend')->with('success', 'Film ajouté');
@@ -61,7 +60,6 @@ class FilmsController extends Controller
 
     public function update(Request $request, $id_film)
     {
-     
         $path = Storage::disk('public')->put('img', $request->file('images'));    //chemin + nom image
         $film = Films::find($id_film);
         $film->titre = $request->titre;
