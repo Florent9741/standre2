@@ -6,7 +6,6 @@
       <span class="inline-flex justify-center mt-4 sm:ml-auto sm:mt-0 sm:justify-start">
 
         <a href="https://github.com/06066060606060" class="ml-3 mr-6 text-black">
-
           <i class="fa-brands fa-github" id="github"></i>
         </a>
       </span>

@@ -108,3 +108,10 @@ body {
 overflow: hidden;
 
 }
+
+input[type="file"] { 
+  width: 150px;
+  padding-top: 20px;
+  opacity: 0;
+  position: absolute;
+}

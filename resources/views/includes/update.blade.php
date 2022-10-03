@@ -84,17 +84,22 @@
                                     class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-red-400 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-40"
                                     required>
                                     @foreach ($categories as $categorie)
-                                        <option value="{{ $categorie->id }}" default="1">
+                                        <option value="{{ $categorie->id }}">
                                             {{ $categorie->genre }}
                                         </option>
                                     @endforeach
+                  
+           
                                 </select>
+                         
+
+                             
 
                             </div>
                             <div class="w-1/3">
                                 <label for="realisateur"
                                     class="block pt-3 pb-1 pl-2 text-sm text-gray-700 capitalize ">Realisateur</label>
-                                <input type="text" name="realisateur" value="  {{ $film->realisateur }} "
+                                <input type="text" name="realisateur" value="{{ $film->realisateur }} "
                                     class="block w-full px-3 py-2 mt-2 ml-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-red-400 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-40"
                                     required>
                             </div>
@@ -117,14 +122,13 @@
                         <div class="flex justify-between mt-2">
                             <label for="images" class="flex items-center justify-center h-10 px-6 py-3 mt-4 space-x-2 text-sm tracking-wide text-white transition-colors duration-200 transform bg-red-700 rounded-md hover:bg-red-600 focus:outline-none focus:bg-red-500 focus:ring focus:ring-red-300 focus:ring-opacity-50">
                                 Changer d'affiche</label>
-                            <input type="file"  style="visibility=hidden" id="images" name="images">
-                            <img id="output" width="100" src="{{ Storage::url($film->image) }}">
-
-                            <button type="submit"
-                                class="flex items-center justify-center h-10 px-6 py-3 mt-4 space-x-2 text-sm tracking-wide text-white capitalize transition-colors duration-200 transform bg-red-700 rounded-md hover:bg-red-600 focus:outline-none focus:bg-red-500 focus:ring focus:ring-red-300 focus:ring-opacity-50">
-                                Valider
-                            </button>
-                        </div>
+                                <input type="file" id="files" name="images" value="" required>
+               
+                                <button type="submit"
+                                    class="flex items-center justify-center h-10 px-6 py-3 mt-4 space-x-2 text-sm tracking-wide text-white capitalize transition-colors duration-200 transform bg-red-700 rounded-md hover:bg-red-600 focus:outline-none focus:bg-red-500 focus:ring focus:ring-red-300 focus:ring-opacity-50">
+                                    Valider
+                                </button>
+                            </div>
 
                 </form>
             </div>
