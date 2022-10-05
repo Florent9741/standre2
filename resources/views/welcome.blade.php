@@ -2,6 +2,7 @@
 
 @section('main')
 @include('includes.abo')
+@include('includes.search')
 @include('includes.sortie')
 @endsection
 

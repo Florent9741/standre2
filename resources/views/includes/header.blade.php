@@ -1,4 +1,4 @@
-  <nav class="mt-2 bg-gray-300 rounded-lg shadow">
+  <nav class="mt-2 bg-red-400 rounded-lg shadow">
       <div class="flex flex-col mx-4 md:flex-row md:justify-between md:items-center">
           <div class="flex items-center justify-between">
 
@@ -50,7 +50,7 @@
 
         <div class="  sm:order-3 flex justify-end gap-1 fa-2xl mr-2">
             @guest <i class="fa-solid fa-circle-user text-gray-500 "></i> @endguest
-              @auth <i class="fa-solid fa-circle-user text-red-500 "></i> @endauth
+              @auth <i class="fa-solid fa-circle-user text-orange-900 "></i> @endauth
              
 
                            

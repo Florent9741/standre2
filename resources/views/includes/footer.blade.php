@@ -1,4 +1,4 @@
- <div class="my-4 bg-gray-200 rounded-lg footer">
+ <div class="my-4 bg-red-400 rounded-lg footer">
   <footer class="text-black body-font">
     <div class="container flex flex-col items-center px-5 py-8 mx-auto sm:flex-row">
       <p class="mt-4 text-sm text-black sm:ml-4 sm:pl-4 sm:py-2 sm:mt-0">© 2022 Formation Simplon

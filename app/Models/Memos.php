@@ -8,10 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Memos extends Model
 {
     use HasFactory;
-    protected $fillable = ['contenu','videoId','user_id' ];
+    protected $fillable = ['contenu','id_film','user_id' ];
 
-    public function videos()
+    public function film()
     {
-        return $this->belongsTo(Videos::class, 'videoId' );
+        return $this->belongsTo(Films::class, 'id_film' );
     }
 }

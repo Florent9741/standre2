@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Categories;
 use App\Models\Films;
+use App\Models\Memos;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Throwable;
 
@@ -135,15 +137,33 @@ class FilmsController extends Controller
 
         $memos = new Memos();
         $memos->user_id = Auth::id();
-        $memos->videoId = "$id";
+        $memos->id_film = "$id";
         $memos->contenu = $request['contenu'];
         $memos->save();
 
     } catch (Throwable $e) {
         report($e);
-        return redirect()->route('watch', $memos->videoId)->with('status','Veuillez ajouter la video dans la biblioteque pour pouvoir insérer un memo.');
+        return redirect()->route('films', $memos->id_film)->with('status','Veuillez ajouter la video dans la biblioteque pour pouvoir insérer un memo.');
 
     }
-        return redirect()->route('watch', $memos->videoId);
+        return redirect()->route('films', $memos->id_film);
     }
+
+
+    public function updatememo(Request $request, $id)
+    {
+
+        $memos = Memos::where(['id_film'=>$id, 'user_id'=> $request->user_id])
+        ->find($request->id_memos);
+        if (isset($memos)) {
+        $memos->id = $request->id_memos;
+        $memos->user_id  = $request->user_id;
+        $memos->id_film = $id;
+        $memos->contenu = $request->contenu;
+        $memos->save();
+    }
+    return redirect()->route('films',$id)->with('modifié','Film modifié');
+    }
+
+
 }

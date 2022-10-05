@@ -1,6 +1,6 @@
 
 <section>
-    <div class="w-full p-5 mx-auto mt-6 bg-gray-300 rounded-lg">
+    <div class="w-full p-5 mx-auto mt-6 bg-white rounded-lg">
         <h1 class="flex justify-around pb-6 font-medium text-black sm:text-4xl title-font">Prochainement à l'affiche</h1>
         <div class="grid grid-cols-1 gap-10 lg:grid-cols-4 sm:grid-cols-2">
             @foreach ($films as $film)
@@ -12,7 +12,7 @@
                     <div class="absolute top-0 left-0 right-0 flex items-center justify-between mx-5 mt-3">
                         <div class="flex flex-col justify-start text-center text-gray-100">
                             <span
-                                class="px-2 py-2 leading-none tracking-wide bg-blue-600 border border-black rounded-lg ">{{ date('d M', strtotime($film->date)) }}</span>
+                                class="px-2 py-2 leading-none tracking-wide bg-red-600 border border-black rounded-lg ">{{ date('d M', strtotime($film->date)) }}</span>
                         </div>
                     </div>
                     <h2 class="z-10 p-5">

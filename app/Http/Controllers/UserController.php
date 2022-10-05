@@ -28,7 +28,7 @@ public function showdel($id)
     {
         $membre = User::find($id);
 
-        return view('showdelete', [
+        return view('includes.showdelete', [
             'membre' => $membre,
 
 
@@ -60,7 +60,7 @@ public function showdel($id)
     {
        $members= User::onlyTrashed()->get();
 
-return view ('user_restore', compact('members') );
+return view ('includes.user_restore', compact('members') );
 
     }
 

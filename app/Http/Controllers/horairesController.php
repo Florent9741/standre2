@@ -49,10 +49,10 @@ class horairesController extends Controller
    * @param  int  $id
    * @return Response
    */
-  public function edit($id)
+  public function edit($id_film)
   {
-    $days = $this->getDaysWithfilms($id);
-    $films = $this->getfilmById($id);
+    $days = $this->getDaysWithfilms($id_film);
+    $films = $this->getfilmById($id_film);
     $index = 1;
  
     return view('horaires.edit', compact('days','films', 'index'));    
@@ -102,10 +102,10 @@ class horairesController extends Controller
     return back(); 
   }
  
-  protected function getDaysWithfilms($id) 
+  protected function getDaysWithfilms($id_film) 
   {
-    return days::with(['films' => function ($query) use($id) {
-                $query->where('film_id', $id);
+    return days::with(['films' => function ($query) use($id_film) {
+                $query->where('film_id', $id_film);
             }])->get();
   }
  

@@ -48,7 +48,7 @@ Route::get('/crudee', [FilmsController::class, 'crudee'])->name('crudee');
 
 Route::post('/Film/ajouter', [FilmsController::class, 'create'])->name('ajouter');
 
-Route::put('/Film/update/{id}', [FilmsController::class, 'update'])->whereNumber('id')->name('update');
+Route::post('/Film/update/{id}', [FilmsController::class, 'update'])->whereNumber('id')->name('update');
 
 Route::delete('/Film/delete/{id}', [FilmsController::class, 'delete'])->whereNumber('id')->name('delete');
 
@@ -67,5 +67,12 @@ Route::middleware(['Admin'])->group(function () {
     Route::get('/index', [horairesController::class, 'index'])->name('index');
     Route::get('/show/{id}', [horairesController::class, 'show'])->name('horaires.show');
     Route::get('/edit/{id]', [horairesController::class, 'edit'])->name('horaires.edit');
+        Route::get('/showdelete/{id}', [UserController::class, 'showdel']);
+        Route::delete('/user/{id}', [UserController::class, 'delete']);
+        Route::get('/restore', [UserController::class, 'showrestore']);
+        Route::get('/restore/{id}', [UserController::class, 'restore'])->name('user.restore');    
+    Route::post('/store/{id}',[FilmsController::class, 'creatememo']); 
+    Route::post('/update/{id}', [FilmsController::class, 'updatememo']);
+    Route::delete('/delete/{id}', [FilmsController::class, 'delete'])->whereNumber('id')->name('delete');    
 
 });
