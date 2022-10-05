@@ -65,10 +65,10 @@ class horairesController extends Controller
    * @param  int  $id
    * @return Response
    */
-  public function update(Request $request, $id)
+  public function update(Request $request, $id_film)
   {
     // Mise à jour du nom
-    $films = Films::find($id);
+    $films = Films::find($id_film);
     $films->titre = $request->titre;
     $films->save();
  
@@ -91,9 +91,9 @@ class horairesController extends Controller
    * @param  int  $id
    * @return Response
    */
-  public function destroy($id)
+  public function destroy($id_film)
   {
-    $films = $this->getFilmsById($id);
+    $films = $this->getfilmsById($id_film);
     // Détachement des plages horaires
     $films->days()->detach();
     // Suppression du restaurant

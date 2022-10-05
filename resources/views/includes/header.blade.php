@@ -38,11 +38,11 @@
                   <a class="my-1 text-sm leading-5 text-gray-700 transition-colors duration-200 transform hover:text-red-700 hover:underline md:mx-4 md:my-0"
                       href="{{ route('welcome') }}">Home</a>
                   <a class="my-1 text-sm leading-5 text-gray-700 transition-colors duration-200 transform hover:text-red-700 hover:underline md:mx-4 md:my-0"
-                      href="{{ route('user') }}">Salle 1</a>
+                      href="">Salle 1</a>
                   <a class="my-1 text-sm leading-5 text-gray-700 transition-colors duration-200 transform hover:text-red-700 hover:underline md:mx-4 md:my-0"
-                      href="{{ route('crudee') }}">Salle 3</a>
+                      href="{{ route('user') }}">utilisateurs</a>
                 @auth  <a class="my-1 text-sm leading-5 text-gray-700 transition-colors duration-200 transform hover:text-red-700 hover:underline md:mx-4 md:my-0"
-                      href="{{ route('backend') }}">backend</a> @endauth
+                      href="{{ route('backend') }}">Films</a> @endauth
                  @auth  <a class="my-1 text-sm leading-5 text-gray-700 transition-colors duration-200 transform hover:text-red-700 hover:underline md:mx-4 md:my-0"
                       href="{{ route('signout') }}">Deconnexion</a>@endauth
                       

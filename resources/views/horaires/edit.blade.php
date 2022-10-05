@@ -7,13 +7,16 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <h1 class="text-center">Modification d'un restaurant</h1>
+            <h1 class="text-center">Modification d'un film</h1>
             <hr>
-            {!! Form::model($films, ['route' => ['films.update', {{ $film['id_film'] }}], 'method' => 'put', 'class' => 'form-horizontal']) !!}
+            <form class="mt-5" method="post" action="{{ route('update', ['id_film']) }}"
+            enctype="multipart/form-data">
+            @csrf
                 <div class="form-group">
-                    {!! Form::label('nom', 'Nom :', ['class' => 'col-sm-3 control-label']); !!}
+                <div class="form-group">
+                    <label for="nom">nom : </label>
                     <div class="col-sm-9">
-                        {!! Form::text('name', null, ['class' => 'form-control']) !!}
+                        <input type="text" name="nom" id="nom">
                         <small class="help-block"></small>
                     </div>
                 </div>
@@ -56,6 +59,7 @@
                                         </div>                                            
                                         <div class="col-sm-2">
                                             <button type="button" class="btn btn-danger">Supprimer</button>
+                                            @include('horaires.delete')
                                         </div>    
                                     </div>    
                                 </div>                        
@@ -63,8 +67,8 @@
                         </div>
                     </div>
                 @endforeach
-                {!! Form::submit('Envoyer', ['class' => 'btn btn-primary']) !!}
-            {!! Form::close() !!}
+                <input type="submit" value="Envoyer !">
+           
         </div>
     </div>
 @endsection
@@ -118,7 +122,7 @@
                     dataType: "json"
                 })
                 .done(function(data) {
-                    window.location.href = '{!! url('restaurant') !!}';
+                    window.location.href = '{!! url('film') !!}';
                 })
                 .fail(function(data) {
                     var obj = data.responseJSON;

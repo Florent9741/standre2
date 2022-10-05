@@ -111,6 +111,7 @@ class FilmsController extends Controller
         $filma = Films::find($id_film);
         return view('film', [
         'filma' => $filma,
+        
         ]);
     }
 
@@ -123,6 +124,14 @@ class FilmsController extends Controller
             'films' => $films,
         ]);
     }
+    
+    public function showmemos()
+    {
+        
+        
+       
+        return redirect()->route('film');
+    }
 
     public function creatememo(Request $request, $id)
     {
@@ -130,9 +139,10 @@ class FilmsController extends Controller
 
             $validate = $request->validate([
             'contenu' => 'required',
+           
 
         ]);
-
+       
 
 
         $memos = new Memos();
@@ -140,13 +150,14 @@ class FilmsController extends Controller
         $memos->id_film = "$id";
         $memos->contenu = $request['contenu'];
         $memos->save();
+      
 
     } catch (Throwable $e) {
         report($e);
-        return redirect()->route('films', $memos->id_film)->with('status','Veuillez ajouter la video dans la biblioteque pour pouvoir insérer un memo.');
+        return redirect()->route('film', $memos->id_film)->with('status','Veuillez ajouter la video dans la biblioteque pour pouvoir insérer un memo.');
 
     }
-        return redirect()->route('films', $memos->id_film);
+        return redirect()->route('film', $memos->id_film);
     }
 
 
