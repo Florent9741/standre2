@@ -67,4 +67,11 @@ class User extends Authenticatable
   }
    
     }
+
+    public function memos()
+    {
+        return $this->hasMany(Memos::class, 'user_id', 'id');
+    }
+
+    
 }

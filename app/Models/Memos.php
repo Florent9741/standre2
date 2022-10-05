@@ -14,4 +14,9 @@ class Memos extends Model
     {
         return $this->belongsTo(Films::class, 'id_film' );
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

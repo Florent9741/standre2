@@ -24,4 +24,9 @@ class Films extends Model
         return $this->belongsToMany(days::class, 'workhours','start_time', 'end_time');
     }
 
+    public function memos()
+    {
+        return $this->hasMany(Memos::class, 'id_film', 'id');
+    }
+
 }
