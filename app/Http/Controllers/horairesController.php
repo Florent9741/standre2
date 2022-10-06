@@ -71,10 +71,20 @@ class horairesController extends Controller
     $films = Films::find($id_film);
     $films->titre = $request->titre;
     $films->save();
+
+
+        $rules = [
+            'name' => 'required|max:255',
+            'start.*' => 'date',
+            'end.*' => 'date'
+        ];
+        dd($rules);
+        $validated = $request->validate($rules);
+    
  
     // Balayage et mise à jour des plages
-    $starts = $request->all()['start'];
-    $ends = $request->all()['end'];    
+    $starts = $validated['start'];
+    $ends = $validated['end'];    
     $films->days()->detach();
     foreach ($starts as $key => $array){
       foreach ($array as $k => $value) {
@@ -82,7 +92,9 @@ class horairesController extends Controller
       }
     }
  
-    return response()->json();    
+    return response()->json();  
+    
+    
   }
  
   /**
@@ -116,16 +128,7 @@ class horairesController extends Controller
    
 
 
-  public function rules()
-  {
-      $rules = [
-          'name' => 'required|max:255',
-          'start.*' => 'date',
-          'end.*' => 'date'
-      ];
 
-      return $rules;
-  }
 
 
 }

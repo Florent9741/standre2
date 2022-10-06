@@ -107,10 +107,14 @@ class FilmsController extends Controller
 
 
     public function show($id_film)
-    {
+    {  
+        $memos = Memos::all();
         $filma = Films::find($id_film);
+        
         return view('film', [
         'filma' => $filma,
+        'memos' => $memos,
+        'id' => $id_film,
         
         ]);
     }

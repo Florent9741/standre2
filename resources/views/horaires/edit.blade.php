@@ -24,7 +24,9 @@
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                       <span aria-hidden="true">×</span>
                     </button>
+
                 </div>
+             
                 @foreach($days as $day)
                     <div class="panel panel-primary">
                         <div class="panel-heading">
@@ -40,7 +42,7 @@
                                         <div class="col-sm-10"> 
                                             <label for="{{ 'start' . $index }}" class="col-sm-4 control-label">Heure de début :</label>
                                             <div class="col-sm-8 input-group date">
-                                                <input class="form-control" name="{{ 'start[' . $day->id . '][]' }}" id ="{{ 'start_' . $index++ }}" type="text" value="{{ $film->pivot->start_time }}">
+                                                <input required class="form-control" name="start" id ="{{ 'start_' . $index++ }}" type="text" value="{{ $film->pivot->start_time }}">
                                                 <span class="input-group-addon">
                                                     <span class="glyphicon glyphicon-time"></span>
                                                 </span>   
@@ -51,7 +53,7 @@
                                         <div class="col-sm-10"> 
                                             <label for="{{ 'end_' . $index }}" class="col-sm-4 control-label">Heure de fin :</label>
                                             <div class="col-sm-8 input-group date">
-                                                <input class="form-control" name="{{ 'end[' . $day->id . '][]' }}" id ="{{ 'end_' . $index++ }}" type="text" value="{{ $film->pivot->end_time }}">
+                                                <input required class="form-control" name="end" id ="{{ 'end_' . $index++ }}" type="text" value="{{ $film->pivot->end_time }}">
                                                 <span class="input-group-addon">
                                                     <span class="glyphicon glyphicon-time"></span>
                                                 </span>
@@ -67,8 +69,10 @@
                         </div>
                     </div>
                 @endforeach
-                <input type="submit" value="Envoyer !">
-           
+                <button type="submit" class="btn btn-primary">Supprimer</button>
+                </div>
+            </form>
+                </div>
         </div>
     </div>
 @endsection
@@ -96,14 +100,14 @@
                 + '<div class="col-sm-10">\n' 
                 + '<label for="start' + index++ + '" class="col-sm-4 control-label">Heure de début :</label>\n'
                 + '<div class="col-sm-8 input-group date">\n'
-                + '<input class="form-control" name="start[' + $(this).attr("id_film") + '][]" id_film ="' + index++ + '" type="text">\n'
+                + '<input class="form-control" name="start[' + $(this).attr("id") + '][]" id ="' + index++ + '" type="text">\n'
                 + '<span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>\n'
                 + '</div></div></div>\n'
                 + '<div class="row form-group">\n'
                 + '<div class="col-sm-10">\n' 
                 + '<label for="end' + index++ + '" class="col-sm-4 control-label">Heure de fin :</label>\n'
                 + '<div class="col-sm-8 input-group date">\n'
-                + '<input class="form-control" name="end[' + $(this).attr("id_film") + '][]" id_film ="' + index++ + '" type="text">\n'
+                + '<input class="form-control" name="end[' + $(this).attr("id") + '][]" id ="' + index++ + '" type="text">\n'
                 + '<span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>\n'
                 + '</div></div>\n'
                 + '<div class="col-sm-2"><button type="button" class="btn btn-danger">Supprimer</button></div></div>\n'
@@ -113,15 +117,19 @@
             });
  
             // Soumission 
-            $(document).on('submit', 'form', function(e) {  
+            $(document).on('submit', 'form', function(e) { 
+               
                 e.preventDefault();
                 $.ajax({
+                   
                     method: $(this).attr('method'),
                     url: $(this).attr('action'),
                     data: $(this).serialize(),
                     dataType: "json"
                 })
+
                 .done(function(data) {
+                   
                     window.location.href = '{!! url('film') !!}';
                 })
                 .fail(function(data) {
@@ -139,6 +147,7 @@
                         }
                         // Traitement des erreurs des plages horaires
                         else {
+                            console.log('erreur');
                             $('.alert').removeClass('hidden');                              
                         }
                     });
