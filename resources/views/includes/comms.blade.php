@@ -8,16 +8,11 @@
 @Auth
                         <form  action="{{ route('store', ['id_film']) }}" method="post">
                             @csrf
+                            
+                            <textarea id="message" name="contenu" cols="50" rows="15"  class="w-full h-64 py-1 text-base leading-6 text-gray-700 transition-colors duration-200 ease-in-out bg-white border border-gray-300 rounded outline-none resize-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200">
 
-                            <textarea id="message" name="contenu" cols="50" rows="15"
-                                class="w-full h-64 py-1 text-base leading-6 text-gray-700 transition-colors duration-200 ease-in-out bg-white border border-gray-300 rounded outline-none resize-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200"
-
-
-                >
-
-
-                            </textarea>
-
+                                  </textarea>
+                                 <input type="hidden" name="id" value="{{$filma->id_film}}">
                                 <div class="flex justify-center">
                                 <button  type="submit"
                                     class="mt-2 inline-flex text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">
@@ -28,6 +23,7 @@
                             </div>
 
                         </form>
+
                     </div>
 
 

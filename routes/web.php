@@ -52,7 +52,9 @@ Route::post('/Film/update/{id}', [FilmsController::class, 'update'])->whereNumbe
 
 Route::delete('/Film/delete/{id}', [FilmsController::class, 'delete'])->whereNumber('id')->name('delete');
 
-Route::get('/film/{id}', [FilmsController::class, 'show'])->whereNumber('id');
+Route::get('/film/{id}', [FilmsController::class, 'show'])->whereNumber('id')->name('show');
+Route::get('/showmemos/{id}', [UserController::class, 'showmemos'])->name('showmemos'); 
+Route::post('/store/{id}',[FilmsController::class, 'creatememo'])->name('store');
 
 Route::get('/search', [FilmsController::class, 'search'])->name('search');
 
@@ -71,8 +73,7 @@ Route::middleware(['Admin'])->group(function () {
         Route::delete('/user/{id}', [UserController::class, 'delete']);
         Route::get('/restore', [UserController::class, 'showrestore']);
         Route::get('/restore/{id}', [UserController::class, 'restore'])->name('user.restore');   
-    Route::get('/showmemos/{id}', [UserController::class, 'showmemos'])->name('showmemos'); 
-    Route::post('/store/{id}',[FilmsController::class, 'creatememo'])->name('store');
+
     Route::post('/update/{id}', [FilmsController::class, 'updatememo']);
     Route::delete('/delete/{id}', [FilmsController::class, 'delete'])->whereNumber('id')->name('delete');    
 

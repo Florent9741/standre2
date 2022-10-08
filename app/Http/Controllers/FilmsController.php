@@ -129,15 +129,9 @@ class FilmsController extends Controller
         ]);
     }
     
-    public function showmemos()
-    {
-        
-        
-       
-        return redirect()->route('film');
-    }
 
-    public function creatememo(Request $request, $id)
+
+    public function creatememo(Request $request)
     {
         try {
 
@@ -147,21 +141,22 @@ class FilmsController extends Controller
 
         ]);
        
-
+       
 
         $memos = new Memos();
         $memos->user_id = Auth::id();
-        $memos->id_film = "$id";
+        $memos->id_film = $request->input('id');
         $memos->contenu = $request['contenu'];
+      
         $memos->save();
       
 
     } catch (Throwable $e) {
         report($e);
-        return redirect()->route('film', $memos->id_film)->with('status','Veuillez ajouter la video dans la biblioteque pour pouvoir insérer un memo.');
+        return redirect()->back()->with('status','Veuillez ajouter la video dans la biblioteque pour pouvoir insérer un memo.');
 
     }
-        return redirect()->route('film', $memos->id_film);
+    return redirect()->back();
     }
 
 
