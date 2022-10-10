@@ -75,6 +75,6 @@ Route::middleware(['Admin'])->group(function () {
         Route::get('/restore/{id}', [UserController::class, 'restore'])->name('user.restore');   
 
     Route::post('/update/{id}', [FilmsController::class, 'updatememo'])->name('updatememo');
-    Route::delete('/delete/{id}', [FilmsController::class, 'delete'])->whereNumber('id')->name('delete');    
+    Route::delete('/delete/{id}', [FilmsController::class, 'memodelete'])->whereNumber('id')->name('memodelete');    
 
 });

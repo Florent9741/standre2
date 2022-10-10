@@ -182,7 +182,7 @@ class FilmsController extends Controller
 
        $memos=Memos::find($request->id_memos);
         $memos->delete();
-        return redirect()->route('film',$memos->id_film);
+        return redirect()->back();
     }
 
 }
