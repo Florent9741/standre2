@@ -1,6 +1,6 @@
 @section('content')
                     <h1 class="mb-4 text-3xl font-medium text-gray-900 title-font sm:text-4xl">
-                        Rédiger un mémo
+                        Rédiger un Commentaires
                     </h1>
 
                     <div class="relative px-2 mb-4 md:px-0 lg:px-0 ">
@@ -32,7 +32,7 @@
                 </div>
                 {{-- NOS MEMOS  --}}
                 <h1 class=" text-center mb-4 text-3xl font-medium text-gray-900 title-font sm:text-4xl">
-                    Mémos
+                   Commentaires
                 </h1>
                 <div class="border w-auto m-2 mr-4 text-left">
                     @foreach ($memos as $memo)
@@ -76,7 +76,7 @@
 
     <div class="flex flex-col w-full px-2 mt-5">
         <div class="flex items-center justify-between pb-1 mb-2 border-b">
-            <span class="text-base font-semibold text-gray-700 uppercase ">Les mémos des autres
+            <span class="text-base font-semibold text-gray-700 uppercase ">Les commentaires des autres
                 utilisateurs</span>
 
         </div>

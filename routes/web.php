@@ -37,13 +37,16 @@ Route::get('signout', [Authcontroller::class, 'logout'])->name('signout');
 Route::middleware(['Admin'])->group(function () {
 
     Route::get('/user', [UserController::class, 'getall'])->name('user')->middleware('Admin');
-
+    Route::get('/backend', [FilmsController::class, 'crud'])->name('backend');
 
 });
 
 //----------------------------------------------------------------------------------------------
 
-Route::get('/backend', [FilmsController::class, 'crud'])->name('backend');
+Route::post('/update/{id}', [FilmsController::class, 'updatememo'])->name('updatememo');
+
+Route::delete('/delete/{id}', [FilmsController::class, 'memodelete'])->whereNumber('id')->name('memodelete'); 
+
 Route::get('/crudee', [FilmsController::class, 'crudee'])->name('crudee');
 
 Route::post('/Film/ajouter', [FilmsController::class, 'create'])->name('ajouter');
@@ -77,4 +80,10 @@ Route::middleware(['Admin'])->group(function () {
     Route::post('/update/{id}', [FilmsController::class, 'updatememo'])->name('updatememo');
     Route::delete('/delete/{id}', [FilmsController::class, 'memodelete'])->whereNumber('id')->name('memodelete');    
 
+});
+
+Route::middleware(['auth'])->group(function () {
+
+Route::post('/update/{id}', [FilmsController::class, 'updatememo'])->name('updatememo');
+Route::delete('/delete/{id}', [FilmsController::class, 'memodelete'])->whereNumber('id')->name('memodelete');    
 });

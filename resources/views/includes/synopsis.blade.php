@@ -54,6 +54,7 @@
                             <p class="w-1/2 my-4 text-black"> date : </p>
                             <p class="w-1/2 my-4 text-right text-black">{{ $filma['date'] }}</p>
                         </div>
+                      
                     </div>
 
                     <button @click="modelOpen = false"
