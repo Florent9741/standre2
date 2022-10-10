@@ -108,7 +108,8 @@
                     @if (null !== Auth::user())
                         @if (Auth::user()->id == $memo->user_id)
                             <div class=" px-4 flex flex-col items-center">
-                               
+                                @include('includes.updatememo')
+                                            @include('includes.memodelete')
                             </div>
                         @endif
                     @endif

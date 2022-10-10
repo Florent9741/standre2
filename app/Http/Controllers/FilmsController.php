@@ -172,8 +172,17 @@ class FilmsController extends Controller
         $memos->contenu = $request->contenu;
         $memos->save();
     }
-    return redirect()->route('films',$id)->with('modifié','Film modifié');
+    return redirect()->back()->with('modifié','Film modifié');
     }
 
+    public function memodelete(Request $request)
+    {
+
+        $memos = Memos::where(['user_id'=> $request->user_id]);
+
+       $memos=Memos::find($request->id_memos);
+        $memos->delete();
+        return redirect()->route('film',$memos->id_film);
+    }
 
 }
