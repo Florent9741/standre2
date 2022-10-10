@@ -1,4 +1,4 @@
-<div class="flex flex-col items-center justify-center space-x-4">
+ <div class="flex flex-col items-center justify-center space-x-4">
     <h1 class="text-xl font-medium text-gray-800">Liste des séances</h1>
     <button @click="modelOpen = false" class="text-gray-600 focus:outline-none hover:text-gray-700">
     </button>
@@ -14,11 +14,21 @@
             </button>
         </div>
         <div class="flex flex-col px-2 pb-2 overflow-auto">
-            <div class="p-6 mt-2 text-black bg-white border border-gray-300 cursor-pointer">9h</div>
+            {{-- <div class="p-6 mt-2 text-black bg-white border border-gray-300 cursor-pointer">9h</div>
             <div class="p-6 mt-2 text-black bg-white border border-gray-300 cursor-pointer">11h30</div>
             <div class="p-6 mt-2 text-black bg-white border border-gray-300 cursor-pointer">14h</div>
             <div class="p-6 mt-2 text-black bg-white border border-gray-300 cursor-pointer">16h30</div>
-            <div class="p-6 mt-2 text-black bg-white border border-gray-300 cursor-pointer">19h00</div>
+            <div class="p-6 mt-2 text-black bg-white border border-gray-300 cursor-pointer">19h00</div> --}}
+            @foreach($days as $day)
+            @if($day->films->count() > 0)
+                <strong>{{ $day->name }} :</strong><br> 
+                <ul>
+                @foreach($day->films as $film)
+                    <li>{{ $film->pivot->start_time }} à {{ $film->pivot->end_time }}</li>
+                @endforeach
+                </ul>
+            @endif
+        @endforeach
         </div>
         <button type="submit"
         class="flex items-center justify-center px-6 py-3 mx-4 my-3 space-x-2 text-sm tracking-wide text-white capitalize transition-colors duration-200 transform bg-red-700 rounded-md hover:bg-red-600 focus:outline-none focus:bg-red-500 focus:ring focus:ring-red-300 focus:ring-opacity-50">
@@ -26,4 +36,5 @@
     </button>
     </div>
 
-</div>
+</div> 
+

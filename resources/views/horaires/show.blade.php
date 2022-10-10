@@ -1,4 +1,4 @@
-@extends('vendor.template')
+ @extends('vendor.template')
  
 @section('content')
     <div class="container">
@@ -33,4 +33,4 @@
             </div>
         </div>
     </div>
-@endsection
+@endsection 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categories;
+use App\Models\days;
 use App\Models\Films;
 use App\Models\Memos;
 use Illuminate\Support\Facades\Session;
@@ -19,6 +20,7 @@ class FilmsController extends Controller
         $films = Films::where('affiche', '=', 0)->where('news', '=', 0)->inRandomOrder()->limit(8)->get();
         $filmNew = Films::where('news', '=', 1)->where('affiche', '=', 0)->offset(0)->inRandomOrder()->limit(4)->get();
         $filmActuellement = Films::where('affiche', '=', 1)->offset(0)->inRandomOrder()->limit(8)->get();
+        
         return view('welcome', [
             //'films' c'est la variable utilisé dans le view et $films c'est la variable de la fonction 
             'films' => $films,
@@ -110,11 +112,15 @@ class FilmsController extends Controller
     {  
         $memos = Memos::all();
         $filma = Films::find($id_film);
+        $days = days::all();
+      
         
         return view('film', [
         'filma' => $filma,
         'memos' => $memos,
         'id' => $id_film,
+        'days' => $days,
+        
         
         ]);
     }

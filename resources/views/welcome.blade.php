@@ -9,5 +9,6 @@
 @section('content')
 @include('includes.actuellement')
 @include('includes.prochainement')
+
 @endsection
 
