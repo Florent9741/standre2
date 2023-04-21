@@ -22,21 +22,21 @@
         <div class="swiper-slide flex justify-center">
           <img
             class="object-cover w-1/2 h-96 "
-            src="storage/img/33.jpg"
+            src="storage/img/cr7.jpg"
             alt="apple watch photo"
           />
         </div>
         <div class="swiper-slide flex justify-center">
           <img
             class="object-cover w-1/2 h-96"
-            src="storage/img/44.jpg"
+            src="storage/img/cr7.jpg"
             alt="apple watch photo"
           />
         </div>
         <div class="swiper-slide flex justify-center">
           <img
             class="object-cover w-1/2 h-96"
-            src="storage/img/22.jpg"
+            src="storage/img/cr7.jpg"
             alt="apple watch photo"
           />
         </div>
