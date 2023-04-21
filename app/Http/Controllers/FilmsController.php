@@ -15,6 +15,11 @@ use Throwable;
 class FilmsController extends Controller
 {
 
+
+    public function lien(){
+        return view('includes.lien');
+    }
+
     public function index()
     {
         $films = Films::where('affiche', '=', 0)->where('news', '=', 0)->inRandomOrder()->limit(8)->get();

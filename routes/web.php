@@ -19,6 +19,10 @@ use App\Http\Controllers\UserController;
 
 
 
+ Route::get('lien', [Filmscontroller::class, 'lien'])->name('lien');
+
+
+
 
 Route::get('register', [Authcontroller::class, 'register'])->name('register');
 
