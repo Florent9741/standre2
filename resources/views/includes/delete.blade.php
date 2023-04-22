@@ -27,7 +27,7 @@
                         <button @click="modelOpen = false" class="h-12 px-6 my-4 text-gray-100 bg-gray-700 rounded-lg focus:outline-none hover:text-gray-200">
                             Annuler
                         </button>
-                        <form action="{{ route('delete', $film['id_film']) }}" method="post" >
+                        <form action="{{ route('delete', $nums['id']) }}" method="post" >
                             @csrf
                             @method('delete')
                             <button type="submit"  class="h-12 px-6 my-4 text-gray-100 bg-red-700 rounded-lg focus:outline-none hover:text-gray-200">

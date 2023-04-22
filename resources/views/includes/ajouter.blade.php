@@ -1,7 +1,7 @@
 <div x-data="{ modelOpen: false }">
     <button @click="modelOpen =!modelOpen"
         class="flex items-center justify-center px-6 py-3 my-3 space-x-2 text-sm tracking-wide text-white capitalize transition-colors duration-200 transform bg-red-700 rounded-md hover:bg-red-600 focus:outline-none focus:bg-red-500 focus:ring focus:ring-red-300 focus:ring-opacity-50">
-        <span>Ajouter Un Film</span>
+        <span>Ajouter Un Numéro</span>
     </button>
 
     <div x-cloak x-show="modelOpen" class="fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title"
@@ -33,103 +33,54 @@
                     <div>
                         <div class="flex pb-2">
                             <div class="w-2/3">
-                                <label for="titre"
-                                    class="block text-sm text-gray-700 capitalize dark:text-gray-600">Titre</label>
-                                <input type="text" name="titre"
-                                    class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-red-400 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-40"
-                                    required>
+                            <label for="Nom"
+                                class="block text-sm text-gray-700 capitalize dark:text-gray-600">Nom</label>
+                            <input type="text" name="Nom" placeholder="Nom"
+                                class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-red-400 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-40"
+                                required>
                             </div>
-                            <div class="w-1/3 pt-6 pl-8">
-                                <div class="flex flex-col">
-                                    <div class="">
-                                        <label class="inline-block text-xs text-gray-700" for="news">
-                                            Nouveauté
-                                        </label>
-                                        <input type="hidden" name="news" value="0">
-                                        <input type="checkbox" name="news" value="1"
-                                            class="float-left w-4 h-4 mt-1 mr-2 align-middle transition duration-200 bg-white bg-center bg-no-repeat bg-contain border border-gray-300 rounded-sm appearance-none cursor-pointer form-check-input checked:bg-red-700 checked:border-red-700 focus:outline-none">
-                                    </div>
-                                    <div class="">
-                                        <label class="inline-block text-xs text-gray-700" for="affiche">
-                                            A l'affiche
-                                        </label>
-                                        <input type="hidden" name="affiche" value="0">
-                                        <input  type="checkbox" name="affiche" value="1"
-                                            class="float-left w-4 h-4 mt-1 mr-2 align-middle transition duration-200 bg-white bg-center bg-no-repeat bg-contain border border-gray-300 rounded-sm appearance-none cursor-pointer form-check-input checked:bg-red-700 checked:border-red-700 focus:outline-none">
-
-                                    </div>
-                                </div>
-                            </div>
+                            
                         </div>
 
 
                         <div>
-                            <label for="bandeannonce"
-                                class="block text-sm text-gray-700 capitalize dark:text-gray-600">Bande Annonce</label>
-                            <input type="text" name="bandeannonce" placeholder="Lien de la bande annonce"
+                            <label for="ninterne"
+                                class="block text-sm text-gray-700 capitalize dark:text-gray-600">N° Interne</label>
+                            <input type="text" name="ninterne" placeholder="ninterne"
                                 class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-red-400 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-40"
                                 required>
                         </div>
 
                         <div class="mt-4">
-                            <label for="resume"
-                                class="block text-sm text-gray-700 capitalize dark:text-gray-600">Resumé</label>
-                            <textarea name="resume" rows="6" class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-red-400 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-40"
-                                required></textarea>
+                        <label for="nexterne"
+                                class="block text-sm text-gray-700 capitalize dark:text-gray-600">N° Externe</label>
+                            <input type="text" name="nexterne" placeholder="nexterne"
+                                class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-red-400 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-40"
+                                required>
                         </div>
-                        <div class="flex">
-                            <div class="w-1/3">
-                                <label for="categorie"
-                                    class="block pt-3 pb-1 text-sm text-gray-700 capitalize dark:text-gray-600">Catégorie</label>
-                                <select name="categorie[]" multiple
-                                    class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-red-400 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-40"
-                                    required>
-                                
-                                        @foreach ($categories as $categorie)
-                                    <option value="{{ $categorie['id'] }}" default="1"> 
-                                        {{ $categorie['genre'] }}</option>
-                                    @endforeach
-                                    </option>
-                                </select>
-                                <input type="text" class="html-duration-picker" data-hide-seconds>
-                            </div>
-                            <div class="w-1/3">
-                                <label for="realisateur"
-                                    class="block pt-3 pb-1 pl-2 text-sm text-gray-700 capitalize dark:text-gray-600">Realisateur</label>
-                                <input type="text" name="realisateur"
-                                    class="block w-full px-3 py-2 mt-2 ml-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-red-400 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-40"
-                                    required>
-                            </div>
-                            <div class="w-1/3 pt-3 pl-2">
-                                <label for="duree"
-                                    class="block pb-1 pl-2 text-sm text-gray-700 capitalize dark:text-gray-600">Durée</label>
-                                <input type="time" name="duree" value="01:00"
-                                    class="block w-full px-3 py-2 mt-2 ml-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-red-400 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-40"
-                                    required>
-                            </div>
-                            <div class="w-1/3 pt-3 pl-2">
-                                <label for="date" class="block pb-1 pl-2 text-sm text-gray-700 dark:text-gray-600">Date
-                                    de sortie</label>
-                                <input type="date" value="2022-01-01" min="2018-01-01" placeholder="0h00" name="date"
-                                    class="block w-full px-3 py-2 mt-2 ml-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-red-400 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-40"
-                                    required>
-                            </div>
+
+                        <div class="mt-4">
+                        <label for="gpinterc"
+                                class="block text-sm text-gray-700 capitalize dark:text-gray-600">Gp Interc</label>
+                            <input type="text" name="gpinterc" placeholder="gpinterc"
+                                class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-red-400 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-40"
+                                required>
                         </div>
-                        <div class="flex justify-between mt-2">
-                            <label for="files" class="flex items-center justify-center h-10 px-6 py-3 mt-4 space-x-2 text-sm tracking-wide text-white transition-colors duration-200 transform bg-red-700 rounded-md hover:bg-red-600 focus:outline-none focus:bg-red-500 focus:ring focus:ring-red-300 focus:ring-opacity-50">Ajouter une affiche</label>
-                            <input type="file"  style="display:none" id="files" onchange="loadFile(event)" name="images" value="" required>
-                            <img id="output" width="100">
-                            <button type="submit"
+
+                        <div class="mt-4">
+                        <label for="gpdiff"
+                                class="block text-sm text-gray-700 capitalize dark:text-gray-600">Gp Diffusion</label>
+                            <input type="text" name="gpdiff" placeholder="gpdiff"
+                                class="block w-full px-3 py-2 mt-2 text-gray-600 placeholder-gray-400 bg-white border border-gray-200 rounded-md focus:border-red-400 focus:outline-none focus:ring focus:ring-red-300 focus:ring-opacity-40"
+                                required>
+                        </div>
+
+                        <button type="submit"
                                 class="flex items-center justify-center h-10 px-6 py-3 mt-4 space-x-2 text-sm tracking-wide text-white capitalize transition-colors duration-200 transform bg-red-700 rounded-md hover:bg-red-600 focus:outline-none focus:bg-red-500 focus:ring focus:ring-red-300 focus:ring-opacity-50">
                                 Valider
                             </button>
-                        </div>
-                        <script>
-                            var loadFile = function(event) {
-                                var image = document.getElementById('output');
-                                image.src = URL.createObjectURL(event.target.files[0]);
-                            };
-                        </script>
+
+                  
                 </form>
             </div>
         </div>

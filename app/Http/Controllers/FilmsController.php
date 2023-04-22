@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Categories;
 use App\Models\days;
 use App\Models\Films;
+use App\Models\Nums;
 use App\Models\Memos;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
@@ -38,12 +39,12 @@ class FilmsController extends Controller
 
     public function crud()
     {
-        $films = Films::All();
-        $categories = Categories::All();
+        $nums = Nums::All();
+       
    
         return view('backend', [
-            'films' => $films,
-            'categories' => $categories,
+            'nums' => $nums,
+            
         ]);
     }
 
@@ -64,52 +65,42 @@ class FilmsController extends Controller
     public function create(Request $request)
     {
 //dd($request);
-        $path = Storage::disk('public')->put('img', $request->file('images'));    //chemin + nom image
-        $film = new Films();
-        $film->titre = $request->titre;
-        $film->name = $request->name;
-        $film->affiche = $request->affiche;
-        $film->bandeannonce = $request->bandeannonce;
-        $film->resume = $request->resume;
-        $film->image = $path;
-        $film->duree = $request->duree;
-        $film->news = $request->news;
-        $film->date = $request->date;
-        $film->realisateur = $request->realisateur;
-        $film->save();
-        $film->categories()->attach($request->categorie);
-        return redirect()->route('backend')->with('success', 'Film ajouté');
+          //chemin + nom image
+        $nums = new Nums();
+        $nums->Nom = $request->Nom;
+        $nums->ninterne = $request->ninterne;
+        $nums->nexterne = $request->nexterne;
+        $nums->gpinterc = $request->gpinterc;
+        $nums->gpdiff = $request->gpdiff;
+       
+        $nums->save();
+       
+        return redirect()->route('backend')->with('success', 'Numéro ajouté');
     }
 
 
 
-    public function update(Request $request, $id_film)
+    public function update(Request $request, $id)
     {
-        $path = Storage::disk('public')->put('img', $request->file('images'));    //chemin + nom image
-        $film = Films::find($id_film);
-        $film->titre = $request->titre;
-        $film->name = $request->name;
-        $film->affiche = $request->affiche;
-        $film->bandeannonce = $request->bandeannonce;
-        $film->resume = $request->resume;
-        $film->image = $path;
-        $film->duree = $request->duree;
-        $film->news = $request->news;
-        $film->date = $request->date;
-        $film->realisateur = $request->realisateur;
-        $film->categories()->sync($request->categories);
-        $film->save();
-        $film->categories()->attach($request->categorie);
-        return redirect()->route('backend')->with('modifié', 'Film modifié');
+        $nums = Nums::find($id);
+        $nums->Nom = $request->Nom;
+        $nums->ninterne = $request->ninterne;
+        $nums->nexterne = $request->nexterne;
+        $nums->gpinterc = $request->gpinterc;
+        $nums->gpdiff = $request->gpdiff;
+       
+        $nums->save();
+       
+        return redirect()->route('backend')->with('modifié', 'Numéro modifié');
 
     }
 
 
-    public function delete($id_film)
+    public function delete($id)
     {
-        $film = Films::where('id_film', '=', $id_film);
-        $film->delete();
-        return redirect()->route('backend')->with('deleted', 'Film supprimé');
+        $nums = Nums::where('id', '=', $id);
+        $nums->delete();
+        return redirect()->route('backend')->with('deleted', 'Numéro supprimé');
     }
 
 
