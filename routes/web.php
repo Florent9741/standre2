@@ -42,6 +42,7 @@ Route::middleware(['Admin'])->group(function () {
 
     Route::get('/user', [UserController::class, 'getall'])->name('user')->middleware('Admin');
     Route::get('/backend', [FilmsController::class, 'crud'])->name('backend');
+    Route::get('/backend2', [FilmsController::class, 'crud2'])->name('backend2');
 
 });
 
@@ -58,6 +59,13 @@ Route::post('/Film/ajouter', [FilmsController::class, 'create'])->name('ajouter'
 Route::post('/Film/update/{id}', [FilmsController::class, 'update'])->whereNumber('id')->name('update');
 
 Route::delete('/Film/delete/{id}', [FilmsController::class, 'delete'])->whereNumber('id')->name('delete');
+//--------------------------NUMS2----------------------------------------------//
+Route::post('/Film/ajouter2', [FilmsController::class, 'createnums2'])->name('ajouter2');
+
+Route::post('/Film/update2/{id}', [FilmsController::class, 'updatenums2'])->whereNumber('id')->name('update2');
+
+Route::delete('/Film/delete2/{id}', [FilmsController::class, 'deletenums2'])->whereNumber('id')->name('delete2');
+//---------------------------------------------------------------------------------------------------------//
 
 Route::get('/film/{id}', [FilmsController::class, 'show'])->whereNumber('id')->name('show');
 Route::get('/showmemos/{id}', [UserController::class, 'showmemos'])->name('showmemos'); 

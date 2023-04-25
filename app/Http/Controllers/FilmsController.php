@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Categories;
 use App\Models\days;
 use App\Models\Films;
+use App\Models\Nums2s;
 use App\Models\Nums;
 use App\Models\Memos;
 use Illuminate\Support\Facades\Session;
@@ -40,10 +41,23 @@ class FilmsController extends Controller
     public function crud()
     {
         $nums = Nums::All();
-       
+        $nums2s = Nums2s::All();
    
         return view('backend', [
             'nums' => $nums,
+            'nums2s' => $nums2s,
+            
+        ]);
+    }
+
+    
+    public function crud2()
+    {
+        $nums2s = Nums2s::All();
+       
+   
+        return view('backend2', [
+            'nums2s' => $nums2s,
             
         ]);
     }
@@ -103,8 +117,49 @@ class FilmsController extends Controller
         return redirect()->route('backend')->with('deleted', 'Numéro supprimé');
     }
 
+//---------------------------------- NUMS2-------------------------------------//
+public function createnums2(Request $request)
+    {
+//dd($request);
+          //chemin + nom image
+        $nums2s = new Nums2s();
+        $nums2s->Nom = $request->Nom;
+        $nums2s->ninterne = $request->ninterne;
+        $nums2s->nexterne = $request->nexterne;
+        $nums2s->gpinterc = $request->gpinterc;
+        $nums2s->gpdiff = $request->gpdiff;
+       
+        $nums2s->save();
+       
+        return redirect()->route('backend')->with('success', 'Numéro ajouté');
+    }
 
 
+
+    public function updatenums2(Request $request, $id)
+    {
+        $nums2s = Nums2s::find($id);
+        $nums2s->Nom = $request->Nom;
+        $nums2s->ninterne = $request->ninterne;
+        $nums2s->nexterne = $request->nexterne;
+        $nums2s->gpinterc = $request->gpinterc;
+        $nums2s->gpdiff = $request->gpdiff;
+       
+        $nums2s->save();
+       
+        return redirect()->route('backend')->with('modifié', 'Numéro modifié');
+
+    }
+
+
+    public function deletenums2($id)
+    {
+        $nums2s = Nums2s::where('id', '=', $id);
+        $nums2s->delete();
+        return redirect()->route('backend')->with('deleted', 'Numéro supprimé');
+    }
+
+//---------------------------------------------------------------------------------------------------------------------//
 
     public function show($id_film)
     {  
