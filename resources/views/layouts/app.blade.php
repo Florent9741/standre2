@@ -8,9 +8,13 @@
 <body>
 
     <header>
-        @include('includes.header')
+        @include('includes.header2')
 
     </header>
+
+    <Sidebar>
+    @include('includes.header')
+    </Sidebar>
 
     <main>
         @yield('main')
@@ -21,7 +25,7 @@
     </main>
     
     <footer>
-        @include('includes.footer')
+        
     </footer>
 
 

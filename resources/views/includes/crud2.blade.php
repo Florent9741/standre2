@@ -1,6 +1,6 @@
 
 
-<section class="mt-6 text-black bg-gray-200 rounded-lg body-font">
+<section class="mt-6 px-12 text-black bg-gray-200 rounded-lg body-font">
     <div class="container px-5 py-10 mx-auto ">
         <div class="flex flex-col w-full mb-20 text-center ">
             <h1 class="pb-4 mb-2 text-3xl font-medium sm:text-4xl title-font">Liste des mobiles</h1>
@@ -25,7 +25,7 @@
                 
                 <thead>
                     <tr
-                        class="px-4 py-3 text-sm font-medium tracking-wider text-white rounded-b title-font bg-slate-600">
+                        class="px-4 py-3 text-sm font-medium tracking-wider text-white rounded-b title-font bg-black">
                         <th class="px-5 py-3 border-2 ">Nom</th>
                  
                         <th class="px-5 py-3 border-2 ">N° Interne</th>

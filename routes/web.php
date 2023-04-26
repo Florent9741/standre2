@@ -20,6 +20,7 @@ use App\Http\Controllers\UserController;
 
 
  Route::get('lien', [Filmscontroller::class, 'lien'])->name('lien');
+ Route::get('lienwit', [Filmscontroller::class, 'lienwit'])->name('lienwit');
 
 
 

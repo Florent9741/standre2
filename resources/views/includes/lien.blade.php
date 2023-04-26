@@ -1,3 +1,5 @@
+@extends('layouts.app')
+
 <!-- component -->
 <html>
     <head>

@@ -22,6 +22,10 @@ class FilmsController extends Controller
         return view('includes.lien');
     }
 
+    public function lienwit(){
+        return view('includes.lienwit');
+    }
+
     public function index()
     {
         $films = Films::where('affiche', '=', 0)->where('news', '=', 0)->inRandomOrder()->limit(8)->get();
